@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Armin Suraj</title>
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        table {
+            border: 1px solid
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html#hero">AS</a>
+            <ul>
+                <li><a href="index.html#projects">// projects</a></li>
+                <li><a href="index.html#contact">// contact</a></li>
+                <li><a href="#">// resume</a></li>
+                <li><a href="about.html">// about</a></li>
+                <li><a href="labs.html">// labs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="lab">
+            <h1>html experiments</h1>
+            <details>
+                <summary>This space is meant to act as a playground to explore all that html has to offer</summary>
+                <aside>This page might get <i>pruned</i> later</aside>
+            </details>
+            <p> The following is a test for preformatted text using the <code>&lt;pre&gt; tag</code></p>
+            <pre>.　　　
+                .   　 ·　　　 　 · . 　
+                　　　　　 · ✫ 　　　　　✷  　 　　 
+                 　　　 ⋆  ·  ⋆ . 　　 . 　　　
+                　.  　 　 * *　 　　　　　　
+                 　　 .  　. 　　　　  　 　
+                    　 .</pre>
+
+            <hr>
+
+            <h2>Embedding Media</h2>
+
+            <h3>Audio</h3>
+            <p>A song I've been listening to a lot: The Kid LAROI - Love Again</p>
+            <audio controls>
+                <source src="lib/audio/love-again.mp3">
+            </audio>
+
+            <h3>Video</h3>
+            <p>Here's a cute video of a puppy</p>
+            <video loop controls>
+                <source src="lib/videos/dog.mp4">
+            </video>
+
+            <h3>Pictures</h3>
+            <figure>
+                <img src="https://picsum.photos/200/300">
+                <figcaption>Random picture from Lorem Picsum</figcaption>
+            </figure>
+
+            <h3>Webpage</h3>
+            <p>Webpage-ception</p>
+            <iframe src="labs.html" title="Portfolio Homepage"></iframe>
+
+            <h2>Tables</h2>
+            <p>The most useless table you'll see today</p>
+            <table>
+                <caption>Numbers</caption>
+                <colgroup>
+                    <col span="2">
+                    <col style="border: 1px solid;">
+                </colgroup>
+                <tr>
+                    <th>Row No.</th>
+                    <th>Random numbers</th>
+                    <th>Months</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2342</td>
+                    <td>August</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>3422</td>
+                    <td>December</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>1230</td>
+                    <td>January</td>
+                </tr>
+            </table>
+
+            <p>Uses for this table:</p>
+            <ol>
+                <li>None</li>
+                <li>Maybe to sample random numbers?</li>
+                <li>Won't be a good sample though</li>
+            </ol>
+
+            <h2>Fun with forms</h2>
+            <form action="/action_page.php" method="get">
+                <fieldset>
+                    <legend>Random Form</legend>
+                    <label for="fname">First name:</label>
+                    <input type="text" id="fname" name="fname"><br><br>
+                    <label for="lname">Last name:</label>
+                    <input type="text" id="lname" name="lname"><br><br>
+
+                    <label for="classes">Favorite class taught by Prof. Powell</label>
+                    <input list="classlist" name="class" id="classes">
+                    <datalist id="classlist">
+                        <option value="CSE 110">
+                        <option value="CSE 134B">
+                        <option value="CSE 112">
+                    </datalist> <br><br>
+
+                    <label for="electives">Favorite UD Class</label>
+                    <select name="electives" id="electives">
+                        <optgroup label="Systems/Networks">
+                            <option value="120">CSE 120</option>
+                            <option value="123">CSE 123</option>
+                            <option value="124">CSE 124</option>
+                        </optgroup>
+                        <optgroup label="Learning/Vision/Graphics">
+                            <option value="150">CSE 150A</option>
+                            <option value="151">CSE 151A</option>
+                            <option value="151B">CSE 151B</option>
+                            <option value="152">CSE 152A</option>
+                            <option value="158">CSE 158</option>
+                            <option value="167">CSE 167</option>
+                        </optgroup>
+                    </select><br><br>
+
+                    <input type="submit" value="Submit">
+                </fieldset>
+            </form>
+
+
+            <h2>Graphics</h2>
+            <canvas id="canvas">
+                Your browser does not support the canvas tag.
+            </canvas>
+
+            <script>
+                var canvas = document.getElementById("canvas");
+                var context = canvas.getContext("2d");
+                context.fillStyle = "blue";
+                context.fillRect(20, 20, 100, 100);
+                context.strokeRect(20, 20, 100, 100)
+            </script>
+
+        </section>
+
+        <footer>
+            <p><strong>Armin Suraj</strong><br>
+                arminsuraj@gmail.com
+            </p>
+            <nav id="page-nav">
+                <p><b>Links</b></p>
+                <ul>
+                    <li><a href="index.html#projects">// projects</a></li>
+                    <li><a href="index.html#contact">// contact</a></li>
+                    <li><a href="#">// resume</a></li>
+                    <li><a href="#">// about</a></li>
+                    <li><a href="labs.html">// labs</a></li>
+                </ul>
+            </nav>
+            <nav id="socials">
+                <p><b>Socials</b></p>
+                <a href="https://www.github.com/arm-out"><svg width="24" height="24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg></a>
+                <a href="https://www.linkedin.com/in/arminsuraj/"><svg width="24" height="24">
+                        <path
+                            d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+                    </svg></a>
+            </nav>
+        </footer>
+    </main>
+</body>
+
+</html>
