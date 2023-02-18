@@ -351,6 +351,10 @@ footer {
     margin-bottom: 7px;
 }
 
+#socials a {
+    padding-right: 0.5rem;
+}
+
 svg {
     fill: white;
 }
@@ -373,10 +377,3 @@ a:hover {
         margin-top: auto;
     }
 }
-
-
-
-
-
-
-
