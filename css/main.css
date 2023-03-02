@@ -37,6 +37,10 @@ html {
 	scroll-snap-align: start;
 }
 
+#contact {
+	scroll-snap-align: center;
+}
+
 p {
 	margin-block: 16px;
 }
