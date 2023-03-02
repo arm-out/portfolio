@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>CRUD</title>
+		<script type="module" src="js/blog.js"></script>
+		<link rel="stylesheet" href="css/styledcrud.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+	</head>
+	<body>
+		<h1>Blog</h1>
+		<button id="b1" type="button">
+			<i class="fa-solid fa fa-plus"></i> Create Post
+		</button>
+
+		<template id="post">
+			<div class="card">
+				<h2>Title</h2>
+				<h3>Date</h3>
+				<p>Summary</p>
+				<button class="edit-button"></button>
+				<button class="delete-button"></button>
+			</div>
+		</template>
+
+		<dialog id="cstm-prompt">
+			<h1>New Post</h1>
+			<form method="dialog">
+				<label for="title">Post Title</label><br />
+				<input
+					type="text"
+					id="title"
+					name="title"
+					placeholder="Title"
+					required
+				/><br />
+				<label for="intext">Post Date</label><br />
+				<input type="date" id="date" required /><br />
+				<label for="summary">Summary</label><br />
+				<textarea
+					id="summary"
+					rows="5"
+					placeholder="Summary"
+					required
+				></textarea>
+				<br />
+				<br />
+				<button id="promptCancel" type="button">Cancel</button>
+				<button id="promptOK" value="default" type="submit">Create</button>
+			</form>
+		</dialog>
+
+		<dialog id="edit-prompt">
+			<h1>Edit Post</h1>
+			<form method="dialog">
+				<label for="title">Post Title</label><br />
+				<input type="text" id="edit-title" name="title" required /><br />
+				<label for="intext">Post Date</label><br />
+				<input type="date" id="edit-date" required /><br />
+				<label for="summary">Summary</label><br />
+				<textarea
+					id="edit-summary"
+					rows="5"
+					placeholder="Summary"
+					required
+				></textarea>
+				<br />
+				<br />
+				<button id="editCancel" type="button">Cancel</button>
+				<button id="editOK" value="default" type="submit">Edit</button>
+			</form>
+		</dialog>
+
+		<script type="module">
+			import { postPrompt, deletePost, editPost, posts } from "/js/blog.js";
+
+			window.addEventListener("DOMContentLoaded", init);
+
+			function init() {
+				let b = document.getElementById("b1");
+
+				b.addEventListener("click", () => {
+					postPrompt();
+				});
+
+				// initial paint
+				let cards = document.createElement("div");
+				cards.setAttribute("id", "post-cards");
+				let temp = document.getElementById("post").content;
+				posts.forEach((entry, index) => {
+					let post = temp.cloneNode(true);
+					post.querySelector("div").setAttribute("id", `post-${index}`);
+					post.querySelector("h2").innerText = entry.title;
+					post.querySelector("h3").innerText = entry.date;
+					post.querySelector("p").innerText = entry.summary;
+					cards.append(post);
+				});
+
+				document.querySelector("body").appendChild(cards);
+			}
+
+			window.addEventListener("load", () => {
+				let deleteBtnList = document.querySelectorAll(".delete-button");
+				deleteBtnList.forEach((btn) => {
+					btn.addEventListener("click", () => {
+						let postId = btn.parentNode.id;
+						let index = postId.slice(5);
+						deletePost(index);
+					});
+				});
+
+				let editBtnList = document.querySelectorAll(".edit-button");
+				editBtnList.forEach((btn) => {
+					btn.addEventListener("click", () => {
+						let postId = btn.parentNode.id;
+						let index = postId.slice(5);
+						editPost(index);
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
