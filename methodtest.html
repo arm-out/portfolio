@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			h1 {
+				font-family: sans-serif;
+			}
+
+			h2,
+			li,
+			em,
+			strong {
+				font-family: "Courier New", Courier, monospace;
+			}
+
+			strong {
+				color: #e749ff;
+			}
+
+			li,
+			em,
+			p {
+				color: #1256a0;
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+            <a id="initials" href="#hero">AS</a>
+
+            <div class="page-nav">
+                <button class="hamburger"></button>
+                    
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html#projects">// projects</a></li>
+                    <li><a href="index.html#contact">// contact</a></li>
+                    <li><a href="#">// resume</a></li>
+                    <li><a href="about.html">// about</a></li>
+                    <li><a href="methodtest.html">// method</a></li>
+                    <li><a href="webcomponent.html">// webcomp</a></li>
+                </ul>
+            </div>
+        </nav>
+		<form action="">
+			<label for="id">ID</label>
+			<input tyoe="number" name="id" id="id" /> <br />
+
+			<label for="article_name">Title</label>
+			<input tyoe="text" name="article_name" id="article_name" /> <br />
+
+			<label for="article_body">Body</label> <br />
+			<textarea
+				name="article_body"
+				id="article_body"
+				cols="30"
+				rows="5"
+			></textarea>
+
+			<input type="hidden" name="date" />
+		</form>
+
+		<button id="post">POST</button>
+		<button id="get">GET</button>
+		<button id="put">PUT</button>
+		<button id="delete">DELETE</button>
+
+		<output id="response"></output>
+
+		<script type="module">
+			let postBtn = document.querySelector("#post");
+			let getBtn = document.querySelector("#get");
+			let putBtn = document.querySelector("#put");
+			let deleteBtn = document.querySelector("#delete");
+
+			let output = document.querySelector("#response");
+			const displayOutput = (type, data) => {
+				console.log(data);
+				output.innerHTML += `<h1>HTML ${type} Response</h1>`;
+
+				for (const prop in data) {
+					if (typeof data[prop] === "object") {
+						output.innerHTML += `<h2>${prop}</h2>`;
+						if (data[prop] === null || Object.keys(data[prop]).length == 0) {
+							output.innerHTML += `<em>Empty</em>`;
+						} else {
+							let list = document.createElement("ul");
+							for (const field in data[prop]) {
+								list.innerHTML += `<li><strong>${field}</strong>: ${data[prop][field]}`;
+							}
+							output.appendChild(list);
+						}
+					} else {
+						output.innerHTML += `<h2>${prop}</h2>`;
+						output.innerHTML += `<p>${data[prop]}</p>`;
+					}
+				}
+			};
+
+			const getRequest = async () => {
+				let id = encodeURIComponent(document.querySelector("#id").value);
+				let title = encodeURIComponent(
+					document.querySelector("#article_name").value
+				);
+				let body = encodeURIComponent(
+					document.querySelector("#article_body").value
+				);
+				let date = encodeURIComponent(new Date());
+
+				const url = `https://httpbin.org/get?id=${id}&article_name=${title}&article_body=${body}&date=${date}`;
+				const resp = await fetch(url, { method: "GET" });
+
+				if (!resp.ok) {
+					throw new Error("Error fetching get response");
+				}
+				const data = await resp.json();
+				return data;
+			};
+
+			const deleteRequest = async () => {
+				let id = encodeURIComponent(document.querySelector("#id").value);
+				let title = encodeURIComponent(
+					document.querySelector("#article_name").value
+				);
+				let body = encodeURIComponent(
+					document.querySelector("#article_body").value
+				);
+				let date = encodeURIComponent(new Date());
+
+				const url = `https://httpbin.org/delete?id=${id}&article_name=${title}&article_body=${body}&date=${date}`;
+				const resp = await fetch(url, { method: "DELETE" });
+
+				if (!resp.ok) {
+					throw new Error("Error fetching get response");
+				}
+				const data = await resp.json();
+				return data;
+			};
+
+			const postRequest = async () => {
+				let postid = encodeURIComponent(document.querySelector("#id").value);
+				let title = encodeURIComponent(
+					document.querySelector("#article_name").value
+				);
+				let body = encodeURIComponent(
+					document.querySelector("#article_body").value
+				);
+				let postDate = encodeURIComponent(new Date());
+
+				let options = {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						id: postid,
+						article_name: title,
+						article_body: body,
+						date: postDate,
+					}),
+				};
+				const url = `https://httpbin.org/post`;
+				const resp = await fetch(url, options);
+
+				if (!resp.ok) {
+					throw new Error("Error fetching get response");
+				}
+				const data = await resp.json();
+				return data;
+			};
+
+			const putRequest = async () => {
+				let putid = encodeURIComponent(document.querySelector("#id").value);
+				let title = encodeURIComponent(
+					document.querySelector("#article_name").value
+				);
+				let body = encodeURIComponent(
+					document.querySelector("#article_body").value
+				);
+				let putDate = encodeURIComponent(new Date());
+
+				let options = {
+					method: "PUT",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						id: putid,
+						article_name: title,
+						article_body: body,
+						date: putDate,
+					}),
+				};
+				const url = `https://httpbin.org/put`;
+				const resp = await fetch(url, options);
+
+				if (!resp.ok) {
+					throw new Error("Error fetching get response");
+				}
+				const data = await resp.json();
+				return data;
+			};
+
+			getBtn.addEventListener("click", async () => {
+				try {
+					const data = await getRequest();
+					output.innerHTML = "";
+					displayOutput("GET", data);
+				} catch (error) {
+					console.log(error);
+				}
+			});
+
+			postBtn.addEventListener("click", async () => {
+				try {
+					const data = await postRequest();
+					output.innerHTML = "";
+					displayOutput("POST", data);
+				} catch (error) {
+					console.log(error);
+				}
+			});
+
+			putBtn.addEventListener("click", async () => {
+				try {
+					const data = await postRequest();
+					output.innerHTML = "";
+					displayOutput("POST", data);
+				} catch (error) {
+					console.log(error);
+				}
+			});
+
+			deleteBtn.addEventListener("click", async () => {
+				try {
+					const data = await deleteRequest();
+					output.innerHTML = "";
+					displayOutput("POST", data);
+				} catch (error) {
+					console.log(error);
+				}
+			});
+		</script>
+	</body>
+</html>
