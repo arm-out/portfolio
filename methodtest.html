@@ -224,7 +224,7 @@
 				try {
 					const data = await postRequest();
 					output.innerHTML = "";
-					displayOutput("POST", data);
+					displayOutput("PUT", data);
 				} catch (error) {
 					console.log(error);
 				}
@@ -234,7 +234,7 @@
 				try {
 					const data = await deleteRequest();
 					output.innerHTML = "";
-					displayOutput("POST", data);
+					displayOutput("DELETE", data);
 				} catch (error) {
 					console.log(error);
 				}
