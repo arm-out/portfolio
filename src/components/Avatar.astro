@@ -1,0 +1,31 @@
+<div id='avatar-container'>
+	<img src='avatar.jpeg' alt='' />
+	<div id='flair'>✨</div>
+</div>
+
+<style>
+	#avatar-container {
+		position: relative;
+		height: 3rem;
+		width: 3rem;
+	}
+
+	img {
+		height: 100%;
+		width: 100%;
+		border-radius: 50%;
+		z-index: 0;
+	}
+
+	#flair {
+		position: absolute;
+		background-color: var(--bg-color);
+		border-radius: 50%;
+		bottom: -0.5rem;
+		right: -0.5rem;
+		z-index: 1;
+		padding: 0.125rem 0.25rem;
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+	}
+</style>

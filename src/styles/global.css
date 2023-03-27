@@ -1,0 +1,24 @@
+@font-face {
+	font-family: "Inter";
+	src: url("/fonts/Inter-Light.ttf");
+	font-style: normal;
+}
+
+:root {
+	--ff: Inter, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: var(--ff), "Apple Color Emoji", "Segoe UI Emoji",
+		"Segoe UI Symbol", "Noto Color Emoji";
+	line-height: 1.5;
+}

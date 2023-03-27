@@ -1,0 +1,87 @@
+---
+const { title, imgSrc, imgAlt } = Astro.props;
+---
+
+<p-title data-pid={title}>
+	<h3>
+		<span
+			><a
+				>{title}
+				<svg
+					fill='none'
+					stroke='currentColor'
+					stroke-width='1.5'
+					viewBox='0 0 24 24'
+					xmlns='http://www.w3.org/2000/svg'
+				>
+					<path
+						d='M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25'
+						stroke-linecap='round'
+						stroke-linejoin='round'></path>
+				</svg></a
+			></span
+		>
+	</h3>
+	<img src={imgSrc} alt={imgAlt} />
+</p-title>
+<script>
+	class ProjectTitle extends HTMLElement {
+		constructor() {
+			super();
+
+			// Read the message from the data attribute.
+			const a = this.querySelector("a");
+			const img = this.querySelector("img");
+			const notTouch = window.matchMedia("(hover: hover)").matches;
+
+			if (
+				typeof a !== "undefined" &&
+				a !== null &&
+				typeof img !== "undefined" &&
+				img !== null &&
+				notTouch
+			) {
+				a.addEventListener("mouseenter", () => {
+					img.style.visibility = "visible";
+					img.style.opacity = "1";
+				});
+				a.addEventListener("mouseleave", () => {
+					img.style.visibility = "hidden";
+					img.style.opacity = "0";
+				});
+			}
+		}
+	}
+
+	customElements.define("p-title", ProjectTitle);
+</script>
+<style>
+	h3 {
+		font-size: 1rem;
+		font-weight: var(--ff-weight);
+		color: var(--ff-color-4);
+	}
+
+	svg {
+		height: 0.75rem;
+		width: 0.75rem;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	img {
+		visibility: hidden;
+		opacity: 0;
+		transition-property: opacity;
+		transition-duration: 0.5s;
+		position: absolute;
+	}
+
+	a {
+		cursor: pointer;
+	}
+
+	a:hover {
+		color: var(--ff-color-2);
+	}
+</style>

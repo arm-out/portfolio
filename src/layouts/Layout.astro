@@ -1,0 +1,55 @@
+---
+import Head from "../components/Head.astro";
+import "../styles/global.css";
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<Head title={title} />
+	</head>
+	<body class='dark'>
+		<slot />
+
+		<style>
+			body {
+				--ff-weight: 400;
+
+				--bg-color: rgb(255, 255, 255);
+
+				--ff-color-1: rgb(0, 0, 0);
+
+				min-height: 100vh;
+				margin-block: 1rem;
+
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			body.dark {
+				--bg-color: rgb(23, 23, 23);
+
+				--ff-color-1: rgb(229, 229, 229);
+				--ff-color-2: hsla(0, 0%, 100%, 0.8);
+				--ff-color-3: hsla(0, 0%, 100%, 0.6);
+				--ff-color-4: hsla(0, 0%, 100%, 0.4);
+				--ff-color-hover: hsla(0, 0%, 100%, 1);
+
+				background-color: var(--bg-color);
+			}
+
+			@media (min-width: 640px) {
+				body {
+					margin-top: 6rem;
+				}
+			}
+		</style>
+	</body>
+</html>
