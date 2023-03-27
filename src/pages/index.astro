@@ -20,7 +20,7 @@ import Layout from "../layouts/Layout.astro";
 			<ul>
 				<li>
 					<p>Github</p>
-					<a href=''>
+					<a href='https://github.com/arm-out' target='_blank'>
 						arm-out
 						<svg
 							fill='none'
@@ -38,7 +38,7 @@ import Layout from "../layouts/Layout.astro";
 				</li>
 				<li>
 					<p>Resume</p>
-					<a href=''>
+					<a href='' target='_blank'>
 						armin
 						<svg
 							fill='none'
@@ -56,7 +56,7 @@ import Layout from "../layouts/Layout.astro";
 				</li>
 				<li>
 					<p>LinkedIn</p>
-					<a href=''>
+					<a href='https://www.linkedin.com/in/arminsuraj/' target='_blank'>
 						armin
 						<svg
 							fill='none'
@@ -74,7 +74,7 @@ import Layout from "../layouts/Layout.astro";
 				</li>
 				<li>
 					<p>Twitter</p>
-					<a href=''>
+					<a href='https://twitter.com/armzout' target='_blank'>
 						armzout
 						<svg
 							fill='none'
@@ -92,11 +92,11 @@ import Layout from "../layouts/Layout.astro";
 				</li>
 				<li>
 					<p>Email</p>
-					<a href=''> arminsuraj@gmail.com</a>
+					<p id='email'>arminsuraj@gmail.com</p>
 				</li>
 				<li>
 					<p>Itch.io</p>
-					<a href=''>
+					<a href='https://armout.itch.io/' target='_blank'>
 						armout
 						<svg
 							fill='none'
@@ -120,6 +120,7 @@ import Layout from "../layouts/Layout.astro";
 			<div>
 				<ProjectTitle
 					title='RayTracer'
+					link='https://github.com/arm-out/RayTracer'
 					imgSrc='raytracer.webp'
 					imgAlt='A cornell box'
 				/>
@@ -130,8 +131,8 @@ import Layout from "../layouts/Layout.astro";
 			</div>
 			<div>
 				<ProjectTitle
-					title='Sticker'
 					title='ARMINx8'
+					link='https://github.com/arm-out/ARMINx8'
 					imgSrc='arch.webp'
 					imgAlt='A custom CPU architecture diagram'
 				/>
@@ -187,7 +188,7 @@ import Layout from "../layouts/Layout.astro";
 	</main>
 	<footer>
 		<p>
-			© 2023 Armin Suraj. Built using Astro.build <a href=''>(view source)</a>
+			© 2023 Armin Suraj. Built with &hearts; using Astro.build <a href=''>(view source)</a>
 		</p>
 	</footer>
 
@@ -276,6 +277,14 @@ import Layout from "../layouts/Layout.astro";
 		}
 
 		a:hover {
+			color: var(--ff-color-hover);
+		}
+
+		#email {
+			color: var(--ff-color-2);
+		}
+
+		#email:hover {
 			color: var(--ff-color-hover);
 		}
 

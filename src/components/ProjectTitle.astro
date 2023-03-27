@@ -1,11 +1,11 @@
 ---
-const { title, imgSrc, imgAlt } = Astro.props;
+const { title, link, imgSrc, imgAlt } = Astro.props;
 ---
 
 <p-title data-pid={title}>
 	<h3>
 		<span
-			><a
+			><a href={link} target='_blank'
 				>{title}
 				<svg
 					fill='none'
@@ -79,6 +79,8 @@ const { title, imgSrc, imgAlt } = Astro.props;
 
 	a {
 		cursor: pointer;
+		text-decoration: none;
+		color: var(--ff-color-4);
 	}
 
 	a:hover {
