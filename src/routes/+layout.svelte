@@ -10,7 +10,6 @@
 	let isOpen = false;
 
 	onMount(() => {
-		navMobile!.classList.remove('open');
 		navBtn!.addEventListener('click', function () {
 			isOpen = !isOpen; // Toggle the open state
 			if (isOpen) {
@@ -79,7 +78,7 @@
 	<nav
 		id="nav-mobile"
 		bind:this={navMobile}
-		class="fixed bottom-0 left-0 w-full border-t border-outline bg-dark z-20 md:hidden open"
+		class="fixed bottom-0 left-0 w-full border-t border-outline bg-dark z-20 md:hidden"
 	>
 		<button id="nav-btn" bind:this={navBtn} class="p-4 w-full flex items-center justify-between">
 			<span class="text-sec">{$path}</span>
@@ -145,7 +144,7 @@
 		transform: translateY(calc(100% - 52px));
 	}
 
-	#nav-mobile.open {
+	:global(#nav-mobile.open) {
 		transform: translateY(0);
 	}
 
