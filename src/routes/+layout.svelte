@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { path } from '$lib/store';
+	import { navPath } from '$lib/store';
 	import { onMount } from 'svelte';
 	import '../app.css';
 
@@ -81,7 +81,7 @@
 		class="fixed bottom-0 left-0 w-full border-t border-outline bg-dark z-20 md:hidden"
 	>
 		<button id="nav-btn" bind:this={navBtn} class="p-4 w-full flex items-center justify-between">
-			<span class="text-sec">{$path}</span>
+			<span class="text-sec">{$navPath}</span>
 			<span class="flex items-center gap-2"
 				><span bind:this={btnText}>Open Navigation</span>
 				<svg
