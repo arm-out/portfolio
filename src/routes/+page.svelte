@@ -9,6 +9,14 @@
 	navPath.set('/');
 </script>
 
+<svelte:head>
+	<title>Armin Suraj</title>
+	<meta
+		name="description"
+		content="Studying Computer Science at the University of California, San Diego. Passionate about technology, music, and design. Consistently improving through learning."
+	/>
+</svelte:head>
+
 <h1 class="hidden">Armin Suraj</h1>
 <p class="mb-4">
 	I'm a creative <a

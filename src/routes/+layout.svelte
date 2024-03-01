@@ -8,6 +8,21 @@
 	let btnText;
 
 	let isOpen = false;
+	let active = '';
+
+	$: switch ($navPath) {
+		case '/projects':
+			active = 'Projects';
+			break;
+		case '/about':
+			active = 'About';
+			break;
+		case '/thoughts':
+			active = 'Thoughts';
+			break;
+		default:
+			active = 'Home';
+	}
 
 	onMount(() => {
 		navBtn!.addEventListener('click', function () {
@@ -46,18 +61,24 @@
 	>
 		<ul class="text-sec flex flex-col gap-2">
 			<li>
-				<a href="/projects" class="flex items-center justify-between hover:text-fg"
-					><span>Projects</span> <span>12 projects</span></a
+				<a
+					href="/projects"
+					class="flex items-center justify-between hover:text-fg {active === 'Projects' &&
+						'text-fg'}"><span>Projects</span> <span>12 projects</span></a
 				>
 			</li>
 			<li>
-				<a href="/about" class="flex items-center justify-between hover:text-fg"
+				<a
+					href="/about"
+					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
 					><span>About</span> <span>22 years</span></a
 				>
 			</li>
 			<li>
-				<a href="/thoughts" class="flex items-center justify-between hover:text-fg"
-					><span>Thoughts</span> <span>0 entries</span></a
+				<a
+					href="/thoughts"
+					class="flex items-center justify-between hover:text-fg {active === 'Thoughts' &&
+						'text-fg'}"><span>Thoughts</span> <span>0 entries</span></a
 				>
 			</li>
 		</ul>
