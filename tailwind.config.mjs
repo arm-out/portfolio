@@ -13,6 +13,7 @@ export default {
 				fg: "#faf7ff",
 				sec: "#626262",
 				outline: "#1d1d1d",
+				arm: "#6D28D9",
 			},
 		},
 	},

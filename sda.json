@@ -1,0 +1,58 @@
+{
+	"access_token": "BQCriRlHGov6JphO4loeBEIAAAV16FV3vaOfuoDR79uL__kNuRJWDYZVRUERQocMNAUWpGvLzeM3aGiKZFTjeQ5I7Z3awaeAm0FZ-WPlfpctLQ9yE_dWidghWVof2EopzTdZBI1hxDT38tk5e_V9iMzKTGYgG1YLVFZcAQ1P1kWvuG502ono1M4HPSofCd8MpF74Z-O_fMc",
+	"token_type": "Bearer",
+	"expires_in": 3600,
+	"refresh_token": "AQBBgeQju83SxvK-IajQF9u5AfylSEQNaQlKgg6bIBO9rjC4UYc2Yk3q7sF5LLXUOzr2KaHIj1DAn7cuh8uF8y2_YQrZ6bVA9Ex_yC2fKMEmMkZh2UPjzm7CAvSlLwBkMC8",
+	"scope": "user-read-recently-played"
+}
+{
+	track: {
+	  album: {
+		album_type: 'single',
+		artists: [Array],
+		available_markets: [Array],
+		external_urls: [Object],
+		href: 'https://api.spotify.com/v1/albums/4eadTzshRApGna6Ppz5XwO',
+		id: '4eadTzshRApGna6Ppz5XwO',
+		images: [Array],
+		name: 'If We Ever Broke Up',
+		release_date: '2023-02-10',
+		release_date_precision: 'day',
+		total_tracks: 1,
+		type: 'album',
+		uri: 'spotify:album:4eadTzshRApGna6Ppz5XwO'
+	  },
+	  artists: [ [Object] ],
+	  available_markets: [
+		'AR', 'AU', 'AT', 'BE', 'BO', 'BR', 'BG', 'CA', 'CL', 'CO',
+		'CR', 'CY', 'CZ', 'DK', 'DO', 'DE', 'EC', 'EE', 'SV', 'FI',
+		'FR', 'GR', 'GT', 'HN', 'HK', 'HU', 'IS', 'IE', 'IT', 'LV',
+		'LT', 'LU', 'MY', 'MT', 'MX', 'NL', 'NZ', 'NI', 'NO', 'PA',
+		'PY', 'PE', 'PH', 'PL', 'PT', 'SG', 'SK', 'ES', 'SE', 'CH',
+		'TW', 'TR', 'UY', 'US', 'GB', 'AD', 'LI', 'MC', 'ID', 'JP',
+		'TH', 'VN', 'RO', 'IL', 'ZA', 'SA', 'AE', 'BH', 'QA', 'OM',
+		'KW', 'EG', 'MA', 'DZ', 'TN', 'LB', 'JO', 'PS', 'IN', 'KZ',
+		'MD', 'UA', 'AL', 'BA', 'HR', 'ME', 'MK', 'RS', 'SI', 'KR',
+		'BD', 'PK', 'LK', 'GH', 'KE', 'NG', 'TZ', 'UG', 'AG', 'AM',
+		... 83 more items
+	  ],
+	  disc_number: 1,
+	  duration_ms: 142758,
+	  explicit: true,
+	  external_ids: { isrc: 'GBUM72300969' },
+	  external_urls: {
+		spotify: 'https://open.spotify.com/track/6maTPqynTmrkWIralgGaoP'
+	  },
+	  href: 'https://api.spotify.com/v1/tracks/6maTPqynTmrkWIralgGaoP',
+	  id: '6maTPqynTmrkWIralgGaoP',
+	  is_local: false,
+	  name: 'If We Ever Broke Up',
+	  popularity: 81,
+	  preview_url: 'https://p.scdn.co/mp3-preview/792ab0581d7246b9f8975b70cba3a61879ef86e2?cid=99d29f3403214eb6b8d29e168cb01c0e',
+	  track_number: 1,
+	  type: 'track',
+	  uri: 'spotify:track:6maTPqynTmrkWIralgGaoP'
+	},
+	played_at: '2024-02-29T18:18:50.861Z',
+	context: null
+  }

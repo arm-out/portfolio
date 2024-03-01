@@ -1,13 +1,44 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import FeaturedProject from "../components/FeaturedProject.astro";
+import NowPlaying from "../components/NowPlaying.astro";
 ---
 
 
 <BaseLayout title="Armin Suraj" route="/">
-	<div class="w-full">
-		<div class="h-[100vh] bg-red-400">Hello
-		</div>
-		<div class="h-[100vh] bg-indigo-400"></div>	
-	</div>
-	</BaseLayout>
+	<h1 class="hidden">Armin Suraj</h1>
+	<p class="mb-4">
+		I'm a creative <a href="https://www.youtube.com/watch?v=jG7dSXcfVqE" target="_blank" class="underline decoration-arm decoration-1 underline-offset-[3px] hover:bg-arm">doing what I can't.</a> Exploring ways to use technology to create unique experiences and solve complex problems.
+	</p>
+
+	<NowPlaying/>
+
+	<h3 class="text-sec mt-8 mb-4">
+		Featured Projects
+	</h3>
+	
+	<FeaturedProject
+		title="SeeFood"
+		desc="is an AI nuitrition assistant that provides you with macro breakdowns from pictures of your meals"
+		live="https://seefoodai.vercel.app/"
+		code="https://github.com/arm-out/seefood"
+		href="/seefood"
+	/>
+
+	<FeaturedProject
+		title="NES"
+		desc="is a fully functioning NES emulator written in Rust"
+		code="https://github.com/arm-out/seefood"
+		href="/nes"
+	/>
+
+	<FeaturedProject
+		title="StageManager"
+		desc="is a remote websocket based stage management system built for TEDxUCSD"
+		code="https://github.com/arm-out/seefood"
+		href="/seefood"
+	/>
+
+
+</BaseLayout>
 	
