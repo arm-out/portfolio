@@ -2,6 +2,7 @@
 	import { navPath } from '$lib/store';
 	import { onMount } from 'svelte';
 	import '../app.css';
+	import { onNavigate } from '$app/navigation';
 
 	let navMobile;
 	let navBtn;
@@ -23,6 +24,12 @@
 		default:
 			active = 'Home';
 	}
+
+	onNavigate((nav) => {
+		if (nav.to?.route.id != '/') {
+			navBtn!.click();
+		}
+	});
 
 	onMount(() => {
 		navBtn!.addEventListener('click', function () {
@@ -129,18 +136,24 @@
 
 		<ul class="p-4 text-sec flex flex-col gap-2">
 			<li>
-				<a href="/projects" class="flex items-center justify-between hover:text-fg"
-					><span>Projects</span> <span>12 projects</span></a
+				<a
+					href="/projects"
+					class="flex items-center justify-between hover:text-fg {active === 'Projects' &&
+						'text-fg'}"><span>Projects</span> <span>12 projects</span></a
 				>
 			</li>
 			<li>
-				<a href="/about" class="flex items-center justify-between hover:text-fg"
+				<a
+					href="/about"
+					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
 					><span>About</span> <span>22 years</span></a
 				>
 			</li>
 			<li>
-				<a href="/thoughts" class="flex items-center justify-between hover:text-fg"
-					><span>Thoughts</span> <span>0 entries</span></a
+				<a
+					href="/thoughts"
+					class="flex items-center justify-between hover:text-fg {active === 'Thoughts' &&
+						'text-fg'}"><span>Thoughts</span> <span>0 entries</span></a
 				>
 			</li>
 		</ul>

@@ -6,11 +6,17 @@
 
 <svelte:head>
 	<title>Projects</title>
-	<meta
-		name="description"
-		content="Studying Computer Science at the University of California, San Diego. Passionate about technology, music, and design. Consistently improving through learning."
-	/>
+	<meta name="description" content="These are some of my personal projects and explorations" />
 </svelte:head>
 
 <h1 class="hidden">Projects</h1>
-<p>These are some of my personal projects and explorations</p>
+<p class="mb-16">
+	These are some of my personal projects and explorations. It's my way to discover useful solutions,
+	train my eyes for details, and develop more specific insights in certain topics.
+</p>
+
+<div class="flex flex-row gap-2">
+	<h3 class="inline-block">Eval-it</h3>
+	<span class="text-sec font-light italic">Svelte, Go, Rust</span>
+</div>
+<p class="text-sec">Lorem ipsum dolor sit amet</p>

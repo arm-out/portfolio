@@ -15,7 +15,7 @@
 	</p>
 	<div class="flex gap-4">
 		{#if code}
-			<a class="text-sec text-xs font-light flex items-center gap-1.5" href={live} target="_blank"
+			<a class="text-sec text-xs flex items-center gap-1.5" href={live} target="_blank"
 				>Code
 				<span class="w-3.5 h-3.5 p-0.5 bg-arm flex items-center justify-center">
 					<svg
@@ -34,7 +34,7 @@
 		{/if}
 
 		{#if live}
-			<a class="text-sec text-xs font-light flex items-center gap-1.5" href={live} target="_blank"
+			<a class="text-sec text-xs flex items-center gap-1.5" href={live} target="_blank"
 				>Live
 				<span class="w-3.5 h-3.5 p-0.5 bg-arm flex items-center justify-center">
 					<svg

@@ -4,7 +4,7 @@
 	import FeaturedProject from './FeaturedProject.svelte';
 
 	export let data;
-	console.log(data);
+	// console.log(data);
 
 	navPath.set('/');
 </script>

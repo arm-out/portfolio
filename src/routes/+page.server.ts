@@ -51,7 +51,7 @@ async function getNowPlaying() {
 		//Extracting the required data from the response into seperate variables
 		let song = await response.json();
 		song = song.items[0];
-		console.log(song);
+		// console.log(song);
 
 		const name = song.track.name;
 		const link = song.track.external_urls.spotify;
