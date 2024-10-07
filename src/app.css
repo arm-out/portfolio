@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'ABC Monument Grotesk';
+		src: url('/fonts/ABCMonumentGrotesk-Regular-Trial.woff2') format('woff2');
+		font-weight: base;
+	}
+
+	@font-face {
+		font-family: 'ABC Monument Grotesk';
+		src: url('/fonts/ABCMonumentGrotesk-Light-Trial.woff2') format('woff2');
+		font-weight: 300;
+	}
+}
