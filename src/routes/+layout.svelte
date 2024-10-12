@@ -34,9 +34,7 @@
 		}
 	});
 
-	let ready = false;
 	onMount(() => {
-		ready = true;
 		navBtn!.addEventListener('click', function () {
 			isOpen = !isOpen; // Toggle the open state
 			if (isOpen) {
@@ -65,7 +63,7 @@
 	<div
 		class="mb-[52px] md:mt-[-9.5rem] lg:mt-[-12.4rem] col-span-6 row-start-2 lg:col-start-3 lg:col-span-5 xl:col-span-4 xl:col-start-5"
 	>
-		<PageTransition url={ready ? data.url : ''}>
+		<PageTransition url={data.url}>
 			<slot />
 		</PageTransition>
 	</div>
