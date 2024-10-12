@@ -3,6 +3,7 @@
 	import '../app.css';
 	import { onNavigate } from '$app/navigation';
 	import type { LayoutData } from './$types';
+	import PageTransition from '$lib/components/PageTransition.svelte';
 
 	export let data: LayoutData;
 
@@ -12,8 +13,6 @@
 
 	let isOpen = false;
 	let active = '';
-
-	$: console.log(data.url);
 
 	$: switch (data.url) {
 		case '/projects':
@@ -35,7 +34,9 @@
 		}
 	});
 
+	let ready = false;
 	onMount(() => {
+		ready = true;
 		navBtn!.addEventListener('click', function () {
 			isOpen = !isOpen; // Toggle the open state
 			if (isOpen) {
@@ -64,7 +65,9 @@
 	<div
 		class="mb-[52px] md:mt-[-9.5rem] lg:mt-[-12.4rem] col-span-6 row-start-2 lg:col-start-3 lg:col-span-5 xl:col-span-4 xl:col-start-5"
 	>
-		<slot />
+		<PageTransition url={ready ? data.url : ''}>
+			<slot />
+		</PageTransition>
 	</div>
 
 	<div
