@@ -1,8 +1,4 @@
 <script lang="ts">
-	import { navPath } from '$lib/store';
-
-	navPath.set('/projects');
-
 	export let data;
 
 	const projects = data.projects;

@@ -1,7 +1,4 @@
 <script lang="ts">
-	import { navPath } from '$lib/store';
-
-	navPath.set('/thoughts');
 </script>
 
 <svelte:head>

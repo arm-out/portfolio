@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { navPath } from '$lib/store';
-
 	export let data;
-	navPath.set(`/projects/${data.meta.slug}`);
 </script>
 
 <svelte:head>
