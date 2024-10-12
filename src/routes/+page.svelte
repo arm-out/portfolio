@@ -1,12 +1,8 @@
 <script lang="ts">
-	import { navPath } from '$lib/store';
 	import Currently from './Currently.svelte';
 	import FeaturedProject from './FeaturedProject.svelte';
 
 	export let data;
-	// console.log(data);
-
-	navPath.set('/');
 </script>
 
 <svelte:head>
