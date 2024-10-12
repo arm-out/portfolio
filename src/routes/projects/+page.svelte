@@ -4,7 +4,6 @@
 	navPath.set('/projects');
 
 	export let data;
-	console.log(data);
 
 	const projects = data.projects;
 	// set of unique languages
