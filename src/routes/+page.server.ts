@@ -1,6 +1,9 @@
 import { CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN } from '$env/static/private';
 import type { PageServerLoad } from './$types';
 
+// SSR is disabled for this route
+export const prerender = false;
+
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/recently-played';
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 
