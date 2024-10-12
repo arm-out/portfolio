@@ -11,6 +11,15 @@
 	let isOpen = false;
 	let active = '';
 
+	const dob = new Date('2001-08-24');
+	const today = new Date();
+	let age = today.getFullYear() - dob.getFullYear();
+	const monthDifference = today.getMonth() - dob.getMonth();
+	const dayDifference = today.getDate() - dob.getDate();
+	if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+		age--;
+	}
+
 	$: switch ($navPath) {
 		case '/projects':
 			active = 'Projects';
@@ -78,7 +87,7 @@
 				<a
 					href="/about"
 					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
-					><span>About</span> <span>22 years</span></a
+					><span>About</span> <span>{age} years</span></a
 				>
 			</li>
 			<li>
@@ -146,7 +155,7 @@
 				<a
 					href="/about"
 					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
-					><span>About</span> <span>22 years</span></a
+					><span>About</span> <span>{age} years</span></a
 				>
 			</li>
 			<li>
