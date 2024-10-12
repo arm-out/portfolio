@@ -3,6 +3,9 @@
 	import { onMount } from 'svelte';
 	import '../app.css';
 	import { onNavigate } from '$app/navigation';
+	import type { LayoutData } from './$types';
+
+	export let data: LayoutData;
 
 	let navMobile;
 	let navBtn;
@@ -10,15 +13,6 @@
 
 	let isOpen = false;
 	let active = '';
-
-	const dob = new Date('2001-08-24');
-	const today = new Date();
-	let age = today.getFullYear() - dob.getFullYear();
-	const monthDifference = today.getMonth() - dob.getMonth();
-	const dayDifference = today.getDate() - dob.getDate();
-	if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
-		age--;
-	}
 
 	$: switch ($navPath) {
 		case '/projects':
@@ -80,14 +74,14 @@
 				<a
 					href="/projects"
 					class="flex items-center justify-between hover:text-fg {active === 'Projects' &&
-						'text-fg'}"><span>Projects</span> <span>12 projects</span></a
+						'text-fg'}"><span>Projects</span> <span>{data.projectCount} projects</span></a
 				>
 			</li>
 			<li>
 				<a
 					href="/about"
 					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
-					><span>About</span> <span>{age} years</span></a
+					><span>About</span> <span>{data.age} years</span></a
 				>
 			</li>
 			<li>
@@ -148,14 +142,14 @@
 				<a
 					href="/projects"
 					class="flex items-center justify-between hover:text-fg {active === 'Projects' &&
-						'text-fg'}"><span>Projects</span> <span>12 projects</span></a
+						'text-fg'}"><span>Projects</span> <span>{data.projectCount} projects</span></a
 				>
 			</li>
 			<li>
 				<a
 					href="/about"
 					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
-					><span>About</span> <span>{age} years</span></a
+					><span>About</span> <span>{data.age} years</span></a
 				>
 			</li>
 			<li>
