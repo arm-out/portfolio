@@ -91,9 +91,7 @@
 <hr class="w-full mt-2 mb-4 h-[1px] bg-outline border-0" />
 
 {#key [checked, external]}
-	{#each projects as p, i (p.slug)}
-		{#if all || p.languages.some((l) => checked.includes(l))}
-			<ListItem {p} {i} {external} {changed} />
-		{/if}
+	{#each projects.filter((p) => all || p.languages.some( (l) => checked.includes(l) )) as p, i (p.slug)}
+		<ListItem {p} {i} {external} {changed} />
 	{/each}
 {/key}
