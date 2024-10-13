@@ -1,4 +1,7 @@
 <script lang="ts">
+	import ListItem from './ListItem.svelte';
+	import { navigating } from '$app/stores';
+	import { onMount } from 'svelte';
 	export let data;
 
 	const projects = data.projects;
@@ -9,6 +12,47 @@
 	let checked: string[] = [];
 	let all = checked.length === 0;
 	$: all = checked.length === 0;
+
+	let changed = 2;
+	$: console.log(checked);
+	$: checked, (changed -= 1);
+	$: console.log(changed);
+
+	let isInternalNavigation = false;
+	let external = false;
+	onMount(() => {
+		const unsubscribe = navigating.subscribe(($navigating) => {
+			if ($navigating) {
+				// This is an internal navigation
+				isInternalNavigation = true;
+			} else {
+				// Navigation completed or it's the initial page load
+				if (!isInternalNavigation) {
+					// This is either the initial page load or an external navigation
+					const referrer = document.referrer;
+					const currentDomain = window.location.hostname;
+
+					if (referrer && new URL(referrer).hostname === currentDomain) {
+						// console.log('Navigated from another page within the domain');
+					} else {
+						// console.log('Navigated from an external source or direct access');
+						external = true;
+					}
+				} else {
+					// console.log('Completed internal navigation');
+				}
+
+				// Reset for next navigation
+				isInternalNavigation = false;
+			}
+		});
+
+		return () => {
+			unsubscribe();
+		};
+	});
+
+	$: console.log(external, 'external');
 </script>
 
 <svelte:head>
@@ -46,18 +90,10 @@
 
 <hr class="w-full mt-2 mb-4 h-[1px] bg-outline border-0" />
 
-{#each projects as p}
-	{#if all || p.languages.some((l) => checked.includes(l))}
-		<div class="mb-6 hover:bg-sec/5">
-			<a href="/projects/{p.slug}">
-				<div class="flex flex-row gap-3 pb-1">
-					<h3 class="inline-block underline decoration-arm decoration-1 underline-offset-[3px]">
-						{p.title}
-					</h3>
-					<span class="text-sec font-light italic">{p.languages.join(', ')}</span>
-				</div>
-				<p class="text-sec">{p.description}</p>
-			</a>
-		</div>
-	{/if}
-{/each}
+{#key [checked, external]}
+	{#each projects as p, i (p.slug)}
+		{#if all || p.languages.some((l) => checked.includes(l))}
+			<ListItem {p} {i} {external} {changed} />
+		{/if}
+	{/each}
+{/key}
