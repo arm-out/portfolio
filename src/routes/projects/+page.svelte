@@ -14,9 +14,7 @@
 	$: all = checked.length === 0;
 
 	let changed = 2;
-	$: console.log(checked);
 	$: checked, (changed -= 1);
-	$: console.log(changed);
 
 	let isInternalNavigation = false;
 	let external = false;
@@ -51,8 +49,6 @@
 			unsubscribe();
 		};
 	});
-
-	$: console.log(external, 'external');
 </script>
 
 <svelte:head>
