@@ -99,11 +99,11 @@
 
 		<ul>
 			<ul class="text-sec flex flex-col gap-2">
-				<li><a href="/resume" class=" hover:text-fg">Resume</a></li>
+				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Resume</a></li>
 				<li>
 					<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
 				</li>
-				<li><a href="/contact" class=" hover:text-fg">Contact</a></li>
+				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Contact</a></li>
 			</ul>
 		</ul>
 	</div>
@@ -167,11 +167,11 @@
 
 		<ul>
 			<ul class="p-4 text-sec flex flex-col gap-2">
-				<li><a href="/resume" class=" hover:text-fg">Resume</a></li>
+				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Resume</a></li>
 				<li>
 					<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
 				</li>
-				<li><a href="/contact" class=" hover:text-fg">Contact</a></li>
+				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Contact</a></li>
 			</ul>
 		</ul>
 	</nav>
