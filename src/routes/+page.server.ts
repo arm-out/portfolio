@@ -166,7 +166,7 @@ async function getNowReading(): Promise<Book> {
 			slug: book.slug
 		}))[0];
 
-	return latestBook;
+	return latestBook as Book;
 }
 
 export const load: PageServerLoad = () => {

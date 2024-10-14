@@ -20,7 +20,7 @@ export type Book = {
 	slug: string;
 	title: string;
 	author: string;
-	cover: string;
+	img: string;
 };
 
 export interface BookResult {
