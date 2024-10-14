@@ -1,5 +1,11 @@
-import { CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN } from '$env/static/private';
-import type { Book, Song } from '$lib/types';
+import {
+	LITERAL_USER_EMAIL,
+	LITERAL_USER_PASSWORD,
+	SPOTIFY_CLIENT_ID,
+	SPOTIFY_CLIENT_SECRET,
+	SPOTIFY_REFRESH_TOKEN
+} from '$env/static/private';
+import type { Book, BookResult, Song } from '$lib/types';
 import type { PageServerLoad } from './$types';
 
 // SSG is disabled for this route
@@ -8,9 +14,9 @@ export const prerender = false;
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/recently-played';
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 
-const client = CLIENT_ID;
-const secret = CLIENT_SECRET;
-const refresh = REFRESH_TOKEN;
+const client = SPOTIFY_CLIENT_ID;
+const secret = SPOTIFY_CLIENT_SECRET;
+const refresh = SPOTIFY_REFRESH_TOKEN;
 
 async function getAccessToken(client_id: string, client_secret: string, refresh_token: string) {
 	//Creates a base64 code of client_id:client_secret as required by the API
@@ -77,17 +83,90 @@ async function getNowPlaying(): Promise<Song> {
 	}
 }
 
+const LITERAL_ENDPOINT = 'https://literal.club/graphql/';
+
+async function getLiteralAccessToken() {
+	const response = await fetch(LITERAL_ENDPOINT, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			query: `
+              mutation login($email: String!, $password: String!) {
+                  login(email: $email, password: $password) {
+                      token
+                  }
+              }
+          `,
+			variables: {
+				email: LITERAL_USER_EMAIL,
+				password: LITERAL_USER_PASSWORD
+			}
+		})
+	}).then((res) => res.json());
+	return response.data.login.token;
+}
+
 async function getNowReading(): Promise<Book> {
-	return new Promise((resolve) => {
-		setTimeout(() => {
-			resolve({
-				title: 'More Than This',
-				author: 'Patrick Ness',
-				link: 'https://literal.club/armout/book/ness-patrickmore-than-this-97ga4',
-				img: 'https://literal.club/assets/images/books/ness-patrickmore-than-this-97ga4.jpg'
-			});
-		}, 1000);
+	const access_token = await getLiteralAccessToken();
+
+	const response = await fetch(LITERAL_ENDPOINT, {
+		method: 'POST',
+		headers: {
+			Authorization: `Bearer ${access_token}`,
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			query: `
+          query myReadingStates {
+            myReadingStates {
+              ...ReadingStateParts # find fragments below
+              book {
+                ...BookParts # find fragments below
+              }
+            }
+          }
+
+          fragment ReadingStateParts on ReadingState {
+            id
+            status
+            bookId
+            profileId
+            createdAt
+          }
+
+          fragment BookParts on Book {
+            id
+            slug
+            title
+            subtitle
+            description
+            cover
+            authors {
+              id
+              name
+            }
+          }
+            `
+		})
 	});
+
+	if (!response.ok) throw new Error('Something went wrong');
+
+	const { data } = await response.json();
+
+	const latestBook = data.myReadingStates
+		.filter((shelf: { status: string; book: BookResult }) => shelf.status === 'IS_READING')
+		.slice(-1)
+		.map(({ book }: { book: BookResult }) => ({
+			title: book.title,
+			author: book.authors[0].name,
+			img: book.cover,
+			slug: book.slug
+		}))[0];
+
+	return latestBook;
 }
 
 export const load: PageServerLoad = () => {

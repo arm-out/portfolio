@@ -21,7 +21,7 @@
 		>
 		<span> by {song.artist}</span>
 	{:catch}
-		<span class="text-red-500">excuses by my spotify endpoint for erroring</span>
+		<span>excuses by my spotify endpoint for erroring</span>
 	{/await}
 
 	<span> and slowly reading </span>
@@ -34,7 +34,7 @@
 		<span class="sr-only">Loading...</span>
 	{:then book}
 		<a
-			href={book.link}
+			href="https://literal.club/armout/book/{book.slug}"
 			class="underline decoration-arm decoration-1 underline-offset-[3px] hover:bg-arm bg-arm/30"
 			target="_blank">{book.title}</a
 		>

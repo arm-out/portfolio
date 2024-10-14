@@ -17,8 +17,15 @@ export type Song = {
 };
 
 export type Book = {
+	slug: string;
 	title: string;
 	author: string;
-	link: string;
-	img: string;
+	cover: string;
 };
+
+export interface BookResult {
+	slug: string;
+	title: string;
+	authors: { name: string }[];
+	cover: string;
+}
