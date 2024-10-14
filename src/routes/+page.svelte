@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Popover from './../lib/components/Popover.svelte';
 	import { onMount } from 'svelte';
 	import Currently from './Currently.svelte';
 	import FeaturedProject from './FeaturedProject.svelte';
@@ -64,44 +65,44 @@
 
 <h3 class="text-sec mt-8 mb-4">Featured Projects</h3>
 
-{#if browser}
-	{#key external}
-		<FeaturedProject
-			title="SeeFood"
-			desc="is an AI nuitrition assistant that provides you with macro breakdowns from pictures of your meals"
-			live="https://seefoodai.vercel.app/"
-			code="https://github.com/arm-out/seefood"
-			href="/seefood"
-			i={0}
-			{external}
-		/>
+{#key external}
+	<FeaturedProject
+		title="SeeFood"
+		desc="is an AI nuitrition assistant that provides you with macro breakdowns from pictures of your meals"
+		live="https://seefoodai.vercel.app/"
+		code="https://github.com/arm-out/seefood"
+		href="/seefood"
+		i={0}
+		{external}
+	/>
 
-		<FeaturedProject
-			title="NES"
-			desc="is a fully functioning NES emulator written in Rust"
-			code="https://github.com/arm-out/seefood"
-			href="/nes"
-			i={1}
-			{external}
-		/>
+	<FeaturedProject
+		title="NES"
+		desc="is a fully functioning NES emulator written in Rust"
+		code="https://github.com/arm-out/seefood"
+		href="/nes"
+		i={1}
+		{external}
+	/>
 
-		<FeaturedProject
-			title="StageManager"
-			desc="is a remote websocket based stage management system built for TEDxUCSD"
-			code="https://github.com/arm-out/seefood"
-			href="/seefood"
-			i={2}
-			{external}
-		/>
+	<FeaturedProject
+		title="StageManager"
+		desc="is a remote websocket based stage management system built for TEDxUCSD"
+		code="https://github.com/arm-out/seefood"
+		href="/seefood"
+		i={2}
+		{external}
+	/>
 
-		<FeaturedProject
-			title="ChartDuels"
-			desc="is a single player browser game of higher or lower based on Spotify streaming data"
-			live="https://www.chartduels.com/"
-			code="https://github.com/arm-out/ChartDuels"
-			href="/chartduels"
-			i={3}
-			{external}
-		/>
-	{/key}
-{/if}
+	<FeaturedProject
+		title="ChartDuels"
+		desc="is a single player browser game of higher or lower based on Spotify streaming data"
+		live="https://www.chartduels.com/"
+		code="https://github.com/arm-out/ChartDuels"
+		href="/chartduels"
+		i={3}
+		{external}
+	/>
+{/key}
+
+<Popover />
