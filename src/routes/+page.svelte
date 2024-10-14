@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Popover from './../lib/components/Popover.svelte';
 	import { onMount } from 'svelte';
 	import Currently from './Currently.svelte';
 	import FeaturedProject from './FeaturedProject.svelte';
