@@ -41,7 +41,8 @@ export const GET: RequestHandler = async ({ url }) => {
 
 	return new Response(png, {
 		headers: {
-			'content-type': 'image/png'
+			'content-type': 'image/png',
+			'cache-control': 'public, max-age=600'
 		}
 	});
 };
