@@ -1,7 +1,8 @@
 import { CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN } from '$env/static/private';
+import type { Book, Song } from '$lib/types';
 import type { PageServerLoad } from './$types';
 
-// SSR is disabled for this route
+// SSG is disabled for this route
 export const prerender = false;
 
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/recently-played';
@@ -31,7 +32,7 @@ async function getAccessToken(client_id: string, client_secret: string, refresh_
 	return response.json();
 }
 
-async function getNowPlaying() {
+async function getNowPlaying(): Promise<Song> {
 	try {
 		//Generating an access token
 		const { access_token } = await getAccessToken(client, secret, refresh);
@@ -59,22 +60,42 @@ async function getNowPlaying() {
 		const name = song.track.name;
 		const link = song.track.external_urls.spotify;
 		const artist = song.track.album.artists[0].name;
+		const preview = song.track.preview_url;
+		const img = song.track.album.images[0].url;
 
 		//Returning the song details
 		return {
 			name,
 			link,
-			artist
+			artist,
+			preview,
+			img
 		};
 	} catch (error) {
 		console.error('Error fetching currently playing song: ', error);
+		throw new Error('Error fetching song');
 	}
 }
 
-export const load: PageServerLoad = async () => {
-	const data = await getNowPlaying();
+async function getNowReading(): Promise<Book> {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve({
+				title: 'More Than This',
+				author: 'Patrick Ness',
+				link: 'https://literal.club/armout/book/ness-patrickmore-than-this-97ga4',
+				img: 'https://literal.club/assets/images/books/ness-patrickmore-than-this-97ga4.jpg'
+			});
+		}, 1000);
+	});
+}
 
-	if (data) {
-		return data;
-	}
+export const load: PageServerLoad = () => {
+	const spotify = getNowPlaying();
+	const literal = getNowReading();
+
+	return {
+		spotify,
+		literal
+	};
 };

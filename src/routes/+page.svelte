@@ -4,7 +4,6 @@
 	import Currently from './Currently.svelte';
 	import FeaturedProject from './FeaturedProject.svelte';
 	import { navigating } from '$app/stores';
-	import { browser } from '$app/environment';
 
 	export let data;
 
@@ -61,7 +60,7 @@
 	> Exploring ways to use technology to create unique experiences and solve complex problems.
 </p>
 
-<Currently song={data.name} artist={data.artist} songLink={data.link} />
+<Currently spotify={data.spotify} literal={data.literal} />
 
 <h3 class="text-sec mt-8 mb-4">Featured Projects</h3>
 
