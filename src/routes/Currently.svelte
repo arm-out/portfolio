@@ -87,6 +87,9 @@
 		if (browser) {
 			audio = new Audio();
 			audio.src = await spotify.then((song) => song.preview);
+			audio.addEventListener('ended', () => {
+				nowPlaying = false;
+			});
 		}
 
 		songCover = await spotify.then((song) => song.img);
@@ -205,6 +208,7 @@
 	{:then book}
 		<span class="relative">
 			<a
+				bind:this={bookLink}
 				href="https://literal.club/armout/book/{book.slug}"
 				class="underline decoration-arm decoration-1 underline-offset-[3px] hover:bg-arm bg-arm/30"
 				target="_blank"
@@ -216,7 +220,7 @@
 			<div
 				bind:this={popoverBook}
 				class="absolute inline z-10"
-				style="left: {songPos.left}px; top: {songPos.top}px"
+				style="left: {bookPos.left}px; top: {bookPos.top}px;"
 				on:mouseenter={showBook}
 				on:mouseleave={hideBook}
 			>
