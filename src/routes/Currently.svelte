@@ -80,13 +80,25 @@
 		}
 	}
 
+	let songCover: string;
+	let bookCover: string;
+
 	onMount(async () => {
 		if (browser) {
 			audio = new Audio();
 			audio.src = await spotify.then((song) => song.preview);
 		}
+
+		songCover = await spotify.then((song) => song.img);
+		bookCover = await literal.then((book) => book.img);
 	});
 </script>
+
+<!-- Preload cover images -->
+<svelte:head>
+	<link rel="preload" as="image" href={songCover} />
+	<link rel="preload" as="image" href={bookCover} />
+</svelte:head>
 
 <p>
 	<span>Currently listening to </span>
