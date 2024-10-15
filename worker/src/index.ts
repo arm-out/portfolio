@@ -2,12 +2,8 @@ import { Hono } from 'hono';
 import { ImageResponse } from 'workers-og';
 import { html as toReactNode } from 'satori-html';
 
-export type Env = {
-	BG_ENDPOINT: string;
-};
-
 // Start a Hono app
-const app = new Hono<{ Bindings: Env }>();
+const app = new Hono();
 
 app.get('/', () => {
 	return new Response('Hello, World!');
