@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	export let data;
+	import { PUBLIC_OG_ENDPOINT } from '$env/static/public';
 
-	console.log($page.url);
+	export let data;
 	let ogImg =
-		'http://localhost:8787/og?title=' +
+		PUBLIC_OG_ENDPOINT +
+		'/og?title=' +
 		encodeURIComponent(data.meta.title) +
 		'&desc=' +
 		encodeURIComponent(data.meta.description);
@@ -13,9 +13,7 @@
 <svelte:head>
 	<title>{data.meta.title}</title>
 	<meta name="description" content={data.meta.description} />
-
 	<meta property="og:image" content={ogImg} />
-	<link rel="og-image-for-prerender" href={ogImg} />
 </svelte:head>
 
 <svelte:component this={data.content} />

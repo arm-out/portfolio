@@ -1,5 +1,7 @@
 import { error } from '@sveltejs/kit';
 
+export const prerender = true;
+
 export async function load({ params }) {
 	try {
 		const project = await import(`../../../projects/${params.slug}.md`);
@@ -8,6 +10,7 @@ export async function load({ params }) {
 			meta: project.metadata
 		};
 	} catch (e) {
-		throw error(404, `Project ${params.slug} not found`);
+		console.log(e);
+		throw error(404, 'Not found');
 	}
 }
