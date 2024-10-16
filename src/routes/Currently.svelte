@@ -94,9 +94,6 @@
 
 		songCover = await spotify.then((song) => song.img);
 		bookCover = await literal.then((book) => book.img);
-
-		// await spotify.then((song) => console.log(song));
-		// await literal.then((book) => console.log(book)).catch((error) => console.log(error));
 	});
 </script>
 
@@ -213,7 +210,7 @@
 			<a
 				bind:this={bookLink}
 				href="https://literal.club/armout/book/{book.slug}"
-				class="underline decoration-arm decoration-1 underline-offset-[3px] hover:bg-arm bg-arm/30"
+				class="underline decoration-arm decoration-1 underline-offset-[3px] hover:bg-arm bg-arm/30 whitespace-nowrap"
 				target="_blank"
 				on:mouseenter={showBook}
 				on:mouseleave={hideBook}>{book.title}</a
