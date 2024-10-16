@@ -94,6 +94,9 @@
 
 		songCover = await spotify.then((song) => song.img);
 		bookCover = await literal.then((book) => book.img);
+
+		// await spotify.then((song) => console.log(song));
+		// await literal.then((book) => console.log(book)).catch((error) => console.log(error));
 	});
 </script>
 
