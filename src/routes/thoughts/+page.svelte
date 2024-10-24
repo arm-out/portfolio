@@ -10,3 +10,8 @@
 </svelte:head>
 
 <h1 class="sr-only">Thoughts</h1>
+
+<p class="mb-8">
+	This is a collection of various thoughts and ruminations inside my mind. Too ephemeral to be a
+	blog post, too long to be a tweet.
+</p>
