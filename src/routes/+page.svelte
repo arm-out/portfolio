@@ -49,7 +49,7 @@
 	/>
 </svelte:head>
 
-<h1 class="hidden">Armin Suraj</h1>
+<h1 class="sr-only">Armin Suraj</h1>
 <p class="mb-4">
 	I'm a creative <a
 		href="https://www.youtube.com/watch?v=jG7dSXcfVqE"

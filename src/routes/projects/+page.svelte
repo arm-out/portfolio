@@ -56,7 +56,7 @@
 	<meta name="description" content="These are some of my personal projects and explorations" />
 </svelte:head>
 
-<h1 class="hidden">Projects</h1>
+<h1 class="sr-only">Projects</h1>
 <p class="mb-8">
 	These are some of my personal projects and explorations. It's my way to discover useful solutions,
 	train my eyes for details, and develop more specific insights in certain topics.

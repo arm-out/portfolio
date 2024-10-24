@@ -9,4 +9,4 @@
 	/>
 </svelte:head>
 
-<h1 class="hidden">Thoughts</h1>
+<h1 class="sr-only">Thoughts</h1>
