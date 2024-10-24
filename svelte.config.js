@@ -6,6 +6,9 @@ import { mdsvex } from 'mdsvex';
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOpts = {
 	extensions: ['.md'],
+	layout: {
+		_: './src/mdsvex.svelte'
+	},
 	remarkPlugins: [enhancedImages]
 };
 
