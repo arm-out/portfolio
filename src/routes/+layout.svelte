@@ -29,7 +29,7 @@
 	}
 
 	onNavigate((nav) => {
-		if (nav.to?.route.id != '/') {
+		if (isOpen) {
 			navBtn!.click();
 		}
 	});
