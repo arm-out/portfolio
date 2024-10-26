@@ -35,6 +35,7 @@
 	});
 
 	onMount(() => {
+		// console.log("Hey there :)")
 		navBtn!.addEventListener('click', function () {
 			isOpen = !isOpen; // Toggle the open state
 			if (isOpen) {
@@ -97,7 +98,6 @@
 
 		<hr class="w-full my-2 h-[1px] bg-outline border-0" />
 
-		<ul>
 			<ul class="text-sec flex flex-col gap-2">
 				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Resume</a></li>
 				<li>
@@ -105,7 +105,6 @@
 				</li>
 				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Contact</a></li>
 			</ul>
-		</ul>
 	</div>
 
 	<nav
@@ -165,7 +164,6 @@
 
 		<hr class="w-[calc(100%-2rem)] my-2 mx-4 h-[1px] bg-outline border-0" />
 
-		<ul>
 			<ul class="p-4 text-sec flex flex-col gap-2">
 				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Resume</a></li>
 				<li>
@@ -173,7 +171,6 @@
 				</li>
 				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Contact</a></li>
 			</ul>
-		</ul>
 	</nav>
 </div>
 
