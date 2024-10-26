@@ -11,6 +11,5 @@ live:
 ---
 
 ![StageManager header image](images/StageManager/header.png)
-<br>
 
 StageManager is a set of internal websocket based remote stage management tools, like teleprompter and stage direction controls, created for [TEDxUCSD](https://tedxucsd.com)

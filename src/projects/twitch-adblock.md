@@ -10,6 +10,5 @@ live:
 ---
 
 ![twitch-adblock header image](images/twitch-adblock/header.png)
-<br>
 
 This is a personal adblock script designed primarily for chromium based browsers that continues twitch livestream playback during ad-breaks through their mini-player

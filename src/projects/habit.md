@@ -12,9 +12,7 @@ live: https://habitsnap.vercel.app/
 ---
 
 ![habit header image](images/habit/header.png)
-<br>
 
 habit was created as a way for my friends and I to keep ourselves accountable for going to the gym. The main premise of the app was everyday, everyone in the group would get a notification to send a picture of them at the gym/whatever habit they wanted to track and be held accountable.
-<br>
 
 This was a PWA made with Svelte, using [Supabase](https://supabase.com/) as for auth into different groups/habits and using their Postgres databse to optimize images and deliver monthly leaderboard statistics.

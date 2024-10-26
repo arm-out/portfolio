@@ -6,6 +6,9 @@ date: 12-19-2023
 languages:
   - Rust
   - C++
-code:
+code: https://github.com/arm-out/NES
 live:
 ---
+
+<!-- ![NES header image](images/NES/header.png) -->
+<br>

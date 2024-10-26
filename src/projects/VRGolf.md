@@ -10,6 +10,5 @@ live:
 ---
 
 ![VRGolf header image](images/VRGolf/header.png)
-<br>
 
 VRGolf is a mini golf game made for the Meta Quest 2 using Unity and their XR Interaction Toolkit. It features 9 holes and supports multiplayer gameplay to connect with friends
