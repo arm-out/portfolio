@@ -65,29 +65,29 @@
 
 {#key external}
 	<FeaturedProject
-		title="SeeFood"
-		desc="is an AI nuitrition assistant that provides you with macro breakdowns from pictures of your meals"
-		live="https://seefoodai.vercel.app/"
-		code="https://github.com/arm-out/seefood"
-		href="/seefood"
+		title="NES"
+		desc="is a fully functioning NES emulator written in Rust"
+		code="https://github.com/arm-out/NES"
+		href="/projects/NES"
 		i={0}
 		{external}
 	/>
 
 	<FeaturedProject
-		title="NES"
-		desc="is a fully functioning NES emulator written in Rust"
-		code="https://github.com/arm-out/seefood"
-		href="/nes"
+		title="habit"
+		desc="a social network that uses social accountability to track habits with friends"
+		live="https://habitsnap.vercel.app/"
+		code="https://github.com/arm-out/habit"
+		href="/projects/habit"
 		i={1}
 		{external}
 	/>
 
 	<FeaturedProject
-		title="StageManager"
-		desc="is a remote websocket based stage management system built for TEDxUCSD"
-		code="https://github.com/arm-out/seefood"
-		href="/seefood"
+		title="SuperSlowMo"
+		desc="is an ML pipeline that can create slow motion videos from regular videos"
+		code="https://github.com/arm-out/SuperSlowMo"
+		href="/projects/SuperSloMo"
 		i={2}
 		{external}
 	/>
