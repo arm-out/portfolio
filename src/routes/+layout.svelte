@@ -99,11 +99,19 @@
 		<hr class="w-full my-2 h-[1px] bg-outline border-0" />
 
 		<ul class="text-sec flex flex-col gap-2">
-			<li><a href="https://arminsuraj.com" class=" hover:text-fg">Resume</a></li>
+			<li>
+				<a
+					href="https://drive.google.com/file/d/18pCvZJ7zqF6O-sCiEvYdt58dB9-9q_GF/view?usp=sharing"
+					target="_blank"
+					class=" hover:text-fg">Resume</a
+				>
+			</li>
 			<li>
 				<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
 			</li>
-			<li><a href="https://arminsuraj.com" class=" hover:text-fg">Contact</a></li>
+			<li>
+				<a href="mailto:arminsuraj@gmail.com" target="_blank" class=" hover:text-fg">Contact</a>
+			</li>
 		</ul>
 	</div>
 
@@ -165,11 +173,19 @@
 		<hr class="w-[calc(100%-2rem)] my-2 mx-4 h-[1px] bg-outline border-0" />
 
 		<ul class="p-4 text-sec flex flex-col gap-2">
-			<li><a href="https://arminsuraj.com" class=" hover:text-fg">Resume</a></li>
+			<li>
+				<a
+					href="https://drive.google.com/file/d/18pCvZJ7zqF6O-sCiEvYdt58dB9-9q_GF/view?usp=sharing"
+					target="_blank"
+					class=" hover:text-fg">Resume</a
+				>
+			</li>
 			<li>
 				<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
 			</li>
-			<li><a href="https://arminsuraj.com" class=" hover:text-fg">Contact</a></li>
+			<li>
+				<a href="mailto:arminsuraj@gmail.com" target="_blank" class=" hover:text-fg">Contact</a>
+			</li>
 		</ul>
 	</nav>
 </div>
