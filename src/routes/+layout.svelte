@@ -21,8 +21,8 @@
 		case '/about':
 			active = 'About';
 			break;
-		case '/thoughts':
-			active = 'Thoughts';
+		case '/notes':
+			active = 'Notes';
 			break;
 		default:
 			active = 'Home';
@@ -82,29 +82,29 @@
 			</li>
 			<li>
 				<a
-					href="/about"
-					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
-					><span>About</span> <span>{data.age} years</span></a
+					href="/notes"
+					class="flex items-center justify-between hover:text-fg {active === 'Notes' && 'text-fg'}"
+					><span>Notes</span> <span>0 entries</span></a
 				>
 			</li>
 			<li>
 				<a
-					href="/thoughts"
-					class="flex items-center justify-between hover:text-fg {active === 'Thoughts' &&
-						'text-fg'}"><span>Thoughts</span> <span>0 entries</span></a
+					href="/about"
+					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
+					><span>About</span> <span>{data.age} years</span></a
 				>
 			</li>
 		</ul>
 
 		<hr class="w-full my-2 h-[1px] bg-outline border-0" />
 
-			<ul class="text-sec flex flex-col gap-2">
-				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Resume</a></li>
-				<li>
-					<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
-				</li>
-				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Contact</a></li>
-			</ul>
+		<ul class="text-sec flex flex-col gap-2">
+			<li><a href="https://arminsuraj.com" class=" hover:text-fg">Resume</a></li>
+			<li>
+				<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
+			</li>
+			<li><a href="https://arminsuraj.com" class=" hover:text-fg">Contact</a></li>
+		</ul>
 	</div>
 
 	<nav
@@ -148,29 +148,29 @@
 			</li>
 			<li>
 				<a
-					href="/about"
-					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
-					><span>About</span> <span>{data.age} years</span></a
+					href="/notes"
+					class="flex items-center justify-between hover:text-fg {active === 'Notes' && 'text-fg'}"
+					><span>Notes</span> <span>0 entries</span></a
 				>
 			</li>
 			<li>
 				<a
-					href="/thoughts"
-					class="flex items-center justify-between hover:text-fg {active === 'Thoughts' &&
-						'text-fg'}"><span>Thoughts</span> <span>0 entries</span></a
+					href="/about"
+					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
+					><span>About</span> <span>{data.age} years</span></a
 				>
 			</li>
 		</ul>
 
 		<hr class="w-[calc(100%-2rem)] my-2 mx-4 h-[1px] bg-outline border-0" />
 
-			<ul class="p-4 text-sec flex flex-col gap-2">
-				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Resume</a></li>
-				<li>
-					<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
-				</li>
-				<li><a href="https://arminsuraj.com" class=" hover:text-fg">Contact</a></li>
-			</ul>
+		<ul class="p-4 text-sec flex flex-col gap-2">
+			<li><a href="https://arminsuraj.com" class=" hover:text-fg">Resume</a></li>
+			<li>
+				<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
+			</li>
+			<li><a href="https://arminsuraj.com" class=" hover:text-fg">Contact</a></li>
+		</ul>
 	</nav>
 </div>
 
