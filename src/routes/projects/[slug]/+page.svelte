@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { afterNavigate, disableScrollHandling, onNavigate } from '$app/navigation';
 	import { PUBLIC_OG_ENDPOINT } from '$env/static/public';
 
 	export let data;
@@ -8,6 +9,10 @@
 		encodeURIComponent(data.meta.title) +
 		'&desc=' +
 		encodeURIComponent(data.meta.description);
+
+	afterNavigate(() => {
+		disableScrollHandling();
+	});
 </script>
 
 <svelte:head>
