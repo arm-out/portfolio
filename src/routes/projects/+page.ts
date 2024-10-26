@@ -6,6 +6,8 @@ export const load: PageLoad = () => {
 
 	const paths = import.meta.glob('/src/projects/*.md', { eager: true });
 	for (const path in paths) {
+		if (path === '/src/projects/_template.md') continue;
+
 		const file = paths[path];
 		if (file && typeof file === 'object' && 'metadata' in file) {
 			const metadata = file.metadata as Project;
@@ -13,6 +15,8 @@ export const load: PageLoad = () => {
 			projects.push(p);
 		}
 	}
+
+	console.log(projects);
 
 	projects = projects.sort((a, b) => {
 		return new Date(b.date).getTime() - new Date(a.date).getTime();

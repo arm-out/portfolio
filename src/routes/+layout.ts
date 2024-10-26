@@ -3,7 +3,7 @@ export const prerender = true;
 export const load = async ({ url }) => {
 	// Project Count
 	const projects = import.meta.glob('/src/projects/*.md');
-	const projectCount = Object.keys(projects).length;
+	const projectCount = Object.keys(projects).length - 1;
 
 	// Age Calculation
 	const dob = new Date('2001-08-24');
