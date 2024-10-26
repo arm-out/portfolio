@@ -16,8 +16,6 @@ export const load: PageLoad = () => {
 		}
 	}
 
-	console.log(projects);
-
 	projects = projects.sort((a, b) => {
 		return new Date(b.date).getTime() - new Date(a.date).getTime();
 	});
