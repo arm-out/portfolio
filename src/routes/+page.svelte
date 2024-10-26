@@ -61,7 +61,7 @@
 
 <Currently spotify={data.spotify} literal={data.literal} />
 
-<h3 class="text-sec mt-8 mb-4">Featured Projects</h3>
+<h2 class="text-sec mt-8 mb-4">Featured Projects</h2>
 
 {#key external}
 	<FeaturedProject
