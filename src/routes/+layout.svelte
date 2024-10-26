@@ -35,7 +35,7 @@
 	});
 
 	onMount(() => {
-		// console.log("Hey there :)")
+		console.log('Hey there 👀 reach me at arminsuraj@gmail.com or @armzout on X to connect!');
 		navBtn!.addEventListener('click', function () {
 			isOpen = !isOpen; // Toggle the open state
 			if (isOpen) {
