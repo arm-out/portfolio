@@ -2,6 +2,7 @@
 	import ListItem from './ListItem.svelte';
 	import { navigating } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { onNavigate } from '$app/navigation';
 	export let data;
 
 	const projects = data.projects;
@@ -48,6 +49,12 @@
 		return () => {
 			unsubscribe();
 		};
+	});
+
+	onNavigate((nav) => {
+		setTimeout(() => {
+			window.scrollTo({ top: 0 });
+		}, 450);
 	});
 </script>
 
