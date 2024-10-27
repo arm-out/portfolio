@@ -14,7 +14,9 @@
 				<h3 class="inline-block underline decoration-arm decoration-1 underline-offset-[3px]">
 					{p.title}
 				</h3>
-				<span class="text-sec font-light italic">{p.languages.join(', ')}</span>
+				{#if p.languages}
+					<span class="text-sec font-light italic">{p.languages.join(', ')}</span>
+				{/if}
 			</div>
 			<p class="text-sec">{p.description}</p>
 		</a>
