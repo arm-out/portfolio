@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ListItem from './ListItem.svelte';
+	import ListItem from '$lib/components/ListItem.svelte';
 	import { navigating } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { onNavigate } from '$app/navigation';
