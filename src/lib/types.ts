@@ -8,6 +8,13 @@ export type Project = {
 	live: string;
 };
 
+export type Note = {
+	title: string;
+	slug: string;
+	description: string;
+	date: string;
+};
+
 export type Song = {
 	name: string;
 	link: string;

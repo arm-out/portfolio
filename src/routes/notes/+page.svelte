@@ -1,4 +1,58 @@
 <script lang="ts">
+	import ListItem from '$lib/components/ListItem.svelte';
+	import { navigating } from '$app/stores';
+	import { onMount } from 'svelte';
+	import { onNavigate } from '$app/navigation';
+	export let data;
+
+	const notes = data.notes;
+
+	let checked: string[] = [];
+	let all = checked.length === 0;
+	$: all = checked.length === 0;
+
+	let changed = 2;
+	$: checked, (changed -= 1);
+
+	let isInternalNavigation = false;
+	let external = false;
+	onMount(() => {
+		const unsubscribe = navigating.subscribe(($navigating) => {
+			if ($navigating) {
+				// This is an internal navigation
+				isInternalNavigation = true;
+			} else {
+				// Navigation completed or it's the initial page load
+				if (!isInternalNavigation) {
+					// This is either the initial page load or an external navigation
+					const referrer = document.referrer;
+					const currentDomain = window.location.hostname;
+
+					if (referrer && new URL(referrer).hostname === currentDomain) {
+						// console.log('Navigated from another page within the domain');
+					} else {
+						// console.log('Navigated from an external source or direct access');
+						external = true;
+					}
+				} else {
+					// console.log('Completed internal navigation');
+				}
+
+				// Reset for next navigation
+				isInternalNavigation = false;
+			}
+		});
+
+		return () => {
+			unsubscribe();
+		};
+	});
+
+	onNavigate((nav) => {
+		setTimeout(() => {
+			window.scrollTo({ top: 0 });
+		}, 450);
+	});
 </script>
 
 <svelte:head>
@@ -12,3 +66,9 @@
 	This is a collection of my various thoughts and ruminations. Too ephemeral to be a blog post, too
 	long to be a tweet.
 </p>
+
+<hr class="w-full mt-2 mb-4 h-[1px] bg-outline border-0" />
+
+{#each notes as p, i (p.slug)}
+	<ListItem {p} {i} {external} {changed} notes={true} />
+{/each}
