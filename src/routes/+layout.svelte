@@ -84,7 +84,8 @@
 				<a
 					href="/notes"
 					class="flex items-center justify-between hover:text-fg {active === 'Notes' && 'text-fg'}"
-					><span>Notes</span> <span>0 entries</span></a
+					><span>Notes</span>
+					<span>{data.notesCount} {data.notesCount === 1 ? 'entry' : 'entries'}</span></a
 				>
 			</li>
 			<li>
@@ -158,7 +159,8 @@
 				<a
 					href="/notes"
 					class="flex items-center justify-between hover:text-fg {active === 'Notes' && 'text-fg'}"
-					><span>Notes</span> <span>0 entries</span></a
+					><span>Notes</span>
+					<span>{data.notesCount} {data.notesCount === 1 ? 'entry' : 'entries'} </span></a
 				>
 			</li>
 			<li>

@@ -5,6 +5,10 @@ export const load = async ({ url }) => {
 	const projects = import.meta.glob('/src/projects/*.md');
 	const projectCount = Object.keys(projects).length - 1;
 
+	// Notes Count
+	const notes = import.meta.glob('/src/notes/*.md');
+	const notesCount = Object.keys(notes).length - 1;
+
 	// Age Calculation
 	const dob = new Date('2001-08-24');
 	const today = new Date();
@@ -15,5 +19,5 @@ export const load = async ({ url }) => {
 		age--;
 	}
 
-	return { projectCount, age, url: url.pathname };
+	return { projectCount, notesCount, age, url: url.pathname };
 };
