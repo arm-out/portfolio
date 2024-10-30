@@ -13,7 +13,7 @@
 		{#if notes}
 			<time datetime={p.date} class="text-sec w-20 font-light">{p.date}</time>
 		{/if}
-		<a href="/projects/{p.slug}" data-sveltekit-noscroll>
+		<a href="/{notes ? 'notes' : 'projects'}/{p.slug}" data-sveltekit-noscroll>
 			<div class="flex flex-row gap-3 pb-1">
 				<h3 class="inline-block underline decoration-arm decoration-1 underline-offset-[3px]">
 					{p.title}
