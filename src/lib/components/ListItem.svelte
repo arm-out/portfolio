@@ -3,12 +3,16 @@
 	export let i;
 	export let external;
 	export let changed;
+	export let notes = false;
 
 	const delay = changed <= 0 || external ? i * 0.2 : 0.8 + i * 0.2;
 </script>
 
 <div style="--delay:{delay}s;" class="fade opacity-0">
-	<div class="mb-6 hover:bg-sec/5">
+	<div class="mb-6 hover:bg-sec/5 {notes && 'flex flex-row'}">
+		{#if notes}
+			<time datetime={p.date} class="text-sec w-20 font-light">{p.date}</time>
+		{/if}
 		<a href="/projects/{p.slug}" data-sveltekit-noscroll>
 			<div class="flex flex-row gap-3 pb-1">
 				<h3 class="inline-block underline decoration-arm decoration-1 underline-offset-[3px]">
