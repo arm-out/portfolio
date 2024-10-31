@@ -21,6 +21,12 @@
 		font-weight: 500;
 	}
 
+	@font-face {
+		font-family: 'Fira Code';
+		src: url('/fonts/FiraCode-Regular.woff2') format('woff2');
+		font-weight: base;
+	}
+
 	::selection {
 		background-color: rgba(109, 40, 217, 0.3);
 		color: #986eda;
