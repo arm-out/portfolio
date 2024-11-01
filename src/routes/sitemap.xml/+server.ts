@@ -51,7 +51,9 @@ export async function GET({ setHeaders }) {
 			xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 		>
 			${createEntry('', '')}
+			${createEntry('projects', '')}
             ${projectEntries.join('\n')}
+			${createEntry('notes', '')}
             ${noteEntries.join('\n')}
             ${createEntry('about', '')}
 	    </urlset>`.trim();
