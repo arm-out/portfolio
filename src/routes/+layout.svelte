@@ -78,7 +78,7 @@
 	</nav>
 
 	<div
-		class="mb-[52px] md:mt-[-9.5rem] lg:mt-[-12.4rem] col-span-6 row-start-2 lg:col-start-3 lg:col-span-5 xl:col-span-4 xl:col-start-5"
+		class="mb-[52px] md:mt-[-11.15rem] lg:mt-[-14.05rem] col-span-6 row-start-2 lg:col-start-3 lg:col-span-5 xl:col-span-4 xl:col-start-5"
 	>
 		<PageTransition url={data.url}>
 			<slot />
