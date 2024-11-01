@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { afterNavigate, disableScrollHandling, onNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
 	import { PUBLIC_OG_ENDPOINT } from '$env/static/public';
 
 	export let data;
@@ -18,7 +19,15 @@
 <svelte:head>
 	<title>{data.meta.title}</title>
 	<meta name="description" content={data.meta.description} />
+
+	<meta property="og:title" content={data.meta.title} />
+	<meta property="og:url" content="https://arminsuraj.com/projects/{$page.params.slug}" />
 	<meta property="og:image" content={ogImg} />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content={data.meta.description} />
+
+	<meta property="twitter:title" content={data.meta.title} />
+	<meta property="twitter:description" content={data.meta.description} />
 </svelte:head>
 
 <div>

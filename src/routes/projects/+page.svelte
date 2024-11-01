@@ -3,6 +3,7 @@
 	import { navigating } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { onNavigate } from '$app/navigation';
+	import { PUBLIC_OG_ENDPOINT } from '$env/static/public';
 	export let data;
 
 	const projects = data.projects;
@@ -56,11 +57,27 @@
 			window.scrollTo({ top: 0 });
 		}, 450);
 	});
+
+	const ogImg =
+		PUBLIC_OG_ENDPOINT +
+		'/og?title=' +
+		encodeURIComponent('Projects') +
+		'&desc=' +
+		encodeURIComponent('Some of my personal projects and explorations');
 </script>
 
 <svelte:head>
 	<title>Projects</title>
-	<meta name="description" content="These are some of my personal projects and explorations" />
+	<meta name="description" content="Some of my personal projects and explorations" />
+
+	<meta property="og:title" content="Projects - Armin Suraj" />
+	<meta property="og:url" content="https://arminsuraj.com/projects" />
+	<meta property="og:image" content={ogImg} />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="Some of my personal projects and explorations" />
+
+	<meta property="twitter:title" content="Projects - Armin Suraj" />
+	<meta property="twitter:description" content="Some of my personal projects and explorations" />
 </svelte:head>
 
 <h1 class="sr-only">Projects</h1>

@@ -3,8 +3,16 @@
 	import Currently from './Currently.svelte';
 	import FeaturedProject from './FeaturedProject.svelte';
 	import { navigating } from '$app/stores';
+	import { PUBLIC_OG_ENDPOINT } from '$env/static/public';
 
 	export let data;
+
+	const ogImg =
+		PUBLIC_OG_ENDPOINT +
+		'/og?title=' +
+		encodeURIComponent(' ') +
+		'&desc=' +
+		encodeURIComponent(' ');
 
 	let isInternalNavigation = false;
 	let external = false;
@@ -45,7 +53,22 @@
 	<title>Armin Suraj</title>
 	<meta
 		name="description"
-		content="Studying Computer Science at the University of California, San Diego. Passionate about technology, music, and design. Consistently improving through learning."
+		content="Software engineer living in the intersection of design and technology"
+	/>
+
+	<meta property="og:title" content="Armin Suraj" />
+	<meta property="og:url" content="https://arminsuraj.com" />
+	<meta property="og:image" content={ogImg} />
+	<meta property="og:type" content="website" />
+	<meta
+		property="og:description"
+		content="Software engineer living in the intersection of design and technology"
+	/>
+
+	<meta property="twitter:title" content="Armin Suraj" />
+	<meta
+		property="twitter:description"
+		content="Software engineer living in the intersection of design and technology"
 	/>
 </svelte:head>
 

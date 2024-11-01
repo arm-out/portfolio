@@ -1,7 +1,15 @@
 <script lang="ts">
+	import { PUBLIC_OG_ENDPOINT } from '$env/static/public';
 	import { onMount } from 'svelte';
 
 	export let data;
+
+	const ogImg =
+		PUBLIC_OG_ENDPOINT +
+		'/og?title=' +
+		encodeURIComponent(' ') +
+		'&desc=' +
+		encodeURIComponent(' ');
 
 	const offset = 8;
 
@@ -24,10 +32,16 @@
 
 <svelte:head>
 	<title>About Me</title>
-	<meta
-		name="description"
-		content="Studying Computer Science at the University of California, San Diego. Passionate about technology, music, and design. Consistently improving through learning."
-	/>
+	<meta name="description" content="What's currently going on in my life" />
+
+	<meta property="og:title" content="Armin Suraj" />
+	<meta property="og:url" content="https://arminsuraj.com/about" />
+	<meta property="og:image" content={ogImg} />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="What's currently going on in my life" />
+
+	<meta property="twitter:title" content="Armin Suraj" />
+	<meta property="twitter:description" content="What's currently going on in my life" />
 </svelte:head>
 
 <h1 class="sr-only">About Me</h1>

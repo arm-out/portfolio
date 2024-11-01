@@ -49,6 +49,16 @@
 	});
 </script>
 
+<svelte:head>
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:site" content="@armzout" />
+	<meta name="twitter:image:width" content="1200" />
+	<meta name="twitter:image:height" content="630" />
+
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+</svelte:head>
+
 <div
 	class="bg-dark text-fg p-5 md:p-9 grid grid-cols-6 md:grid-cols-12 gap-x-4 gap-y-7 text-sm w-full max-w-screen-2xl"
 >
