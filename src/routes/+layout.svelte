@@ -57,6 +57,12 @@
 
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
+
+	<script
+		defer
+		src="https://cloud.umami.is/script.js"
+		data-website-id="cd692313-5f6e-41de-8eb5-47df7ea0b150"
+	></script>
 </svelte:head>
 
 <div
