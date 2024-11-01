@@ -1,16 +1,25 @@
-import { CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN } from '$env/static/private';
+import {
+	SPOTIFY_CLIENT_ID,
+	SPOTIFY_CLIENT_SECRET,
+	SPOTIFY_REFRESH_TOKEN
+} from '$env/static/private';
+import type { Book, Song } from '$lib/types';
 import type { PageServerLoad } from './$types';
+
+// SSG is disabled for this route
+export const prerender = false;
 
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/recently-played';
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 
-const client = CLIENT_ID;
-const secret = CLIENT_SECRET;
-const refresh = REFRESH_TOKEN;
+const client = SPOTIFY_CLIENT_ID;
+const secret = SPOTIFY_CLIENT_SECRET;
+const refresh = SPOTIFY_REFRESH_TOKEN;
 
 async function getAccessToken(client_id: string, client_secret: string, refresh_token: string) {
 	//Creates a base64 code of client_id:client_secret as required by the API
-	const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+	// const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+	const basic = btoa(`${client_id}:${client_secret}`);
 
 	//The response will contain the access token
 	const response = await fetch(TOKEN_ENDPOINT, {
@@ -28,7 +37,7 @@ async function getAccessToken(client_id: string, client_secret: string, refresh_
 	return response.json();
 }
 
-async function getNowPlaying() {
+async function getNowPlaying(): Promise<Song> {
 	try {
 		//Generating an access token
 		const { access_token } = await getAccessToken(client, secret, refresh);
@@ -56,22 +65,37 @@ async function getNowPlaying() {
 		const name = song.track.name;
 		const link = song.track.external_urls.spotify;
 		const artist = song.track.album.artists[0].name;
+		const preview = song.track.preview_url;
+		const img = song.track.album.images[0].url;
 
 		//Returning the song details
 		return {
 			name,
 			link,
-			artist
+			artist,
+			preview,
+			img
 		};
 	} catch (error) {
 		console.error('Error fetching currently playing song: ', error);
+		throw new Error('Error fetching song');
 	}
 }
 
-export const load: PageServerLoad = async () => {
-	const data = await getNowPlaying();
+async function getNowReading(
+	fetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>
+): Promise<Book> {
+	const res = await fetch('/api/literal');
+	const book: Book = await res.json();
+	return book;
+}
 
-	if (data) {
-		return data;
-	}
+export const load: PageServerLoad = async ({ fetch }) => {
+	const spotify = getNowPlaying();
+	const literal = getNowReading(fetch);
+
+	return {
+		spotify,
+		literal
+	};
 };

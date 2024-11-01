@@ -14,4 +14,41 @@
 		src: url('/fonts/ABCMonumentGrotesk-Light-Trial.woff2') format('woff2');
 		font-weight: 300;
 	}
+
+	@font-face {
+		font-family: 'ABC Monument Grotesk';
+		src: url('/fonts/ABCMonumentGrotesk-Medium-Trial.woff2') format('woff2');
+		font-weight: 500;
+	}
+
+	@font-face {
+		font-family: 'Fira Code';
+		src: url('/fonts/FiraCode-Regular.woff2') format('woff2');
+		font-weight: base;
+	}
+
+	::selection {
+		background-color: rgba(109, 40, 217, 0.3);
+		color: #986eda;
+	}
+
+	p {
+		color: #e5e5e5;
+	}
+
+	code {
+		font-size: 12px;
+	}
+
+	p > code {
+		background-color: #1a1a1a;
+		padding: 0.1rem 0.25rem;
+		border-radius: 0.25rem;
+	}
+
+	pre {
+		padding: 0.5rem;
+		overflow-x: auto;
+		margin-bottom: 1rem;
+	}
 }

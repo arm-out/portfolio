@@ -6,7 +6,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['ABC Monument Grotesk', ...fontFamily.sans]
+				sans: ['ABC Monument Grotesk', ...fontFamily.sans],
+				mono: ['Fira Code', ...fontFamily.mono]
 			},
 			colors: {
 				dark: '#0f0f0f',

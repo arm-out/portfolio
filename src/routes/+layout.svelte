@@ -1,8 +1,11 @@
 <script lang="ts">
-	import { navPath } from '$lib/store';
 	import { onMount } from 'svelte';
 	import '../app.css';
 	import { onNavigate } from '$app/navigation';
+	import type { LayoutData } from './$types';
+	import PageTransition from '$lib/components/PageTransition.svelte';
+
+	export let data: LayoutData;
 
 	let navMobile;
 	let navBtn;
@@ -11,27 +14,28 @@
 	let isOpen = false;
 	let active = '';
 
-	$: switch ($navPath) {
+	$: switch (data.url) {
 		case '/projects':
 			active = 'Projects';
 			break;
 		case '/about':
 			active = 'About';
 			break;
-		case '/thoughts':
-			active = 'Thoughts';
+		case '/notes':
+			active = 'Notes';
 			break;
 		default:
 			active = 'Home';
 	}
 
 	onNavigate((nav) => {
-		if (nav.to?.route.id != '/') {
+		if (isOpen) {
 			navBtn!.click();
 		}
 	});
 
 	onMount(() => {
+		console.log('Hey there 👀 reach me at arminsuraj@gmail.com or @armzout on X to connect!');
 		navBtn!.addEventListener('click', function () {
 			isOpen = !isOpen; // Toggle the open state
 			if (isOpen) {
@@ -44,6 +48,16 @@
 		});
 	});
 </script>
+
+<svelte:head>
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:site" content="@armzout" />
+	<meta name="twitter:image:width" content="1200" />
+	<meta name="twitter:image:height" content="630" />
+
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+</svelte:head>
 
 <div
 	class="bg-dark text-fg p-5 md:p-9 grid grid-cols-6 md:grid-cols-12 gap-x-4 gap-y-7 text-sm w-full max-w-screen-2xl"
@@ -60,7 +74,9 @@
 	<div
 		class="mb-[52px] md:mt-[-9.5rem] lg:mt-[-12.4rem] col-span-6 row-start-2 lg:col-start-3 lg:col-span-5 xl:col-span-4 xl:col-start-5"
 	>
-		<slot />
+		<PageTransition url={data.url}>
+			<slot />
+		</PageTransition>
 	</div>
 
 	<div
@@ -71,35 +87,42 @@
 				<a
 					href="/projects"
 					class="flex items-center justify-between hover:text-fg {active === 'Projects' &&
-						'text-fg'}"><span>Projects</span> <span>12 projects</span></a
+						'text-fg'}"><span>Projects</span> <span>{data.projectCount} projects</span></a
+				>
+			</li>
+			<li>
+				<a
+					href="/notes"
+					class="flex items-center justify-between hover:text-fg {active === 'Notes' && 'text-fg'}"
+					><span>Notes</span>
+					<span>{data.notesCount} {data.notesCount === 1 ? 'entry' : 'entries'}</span></a
 				>
 			</li>
 			<li>
 				<a
 					href="/about"
 					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
-					><span>About</span> <span>22 years</span></a
-				>
-			</li>
-			<li>
-				<a
-					href="/thoughts"
-					class="flex items-center justify-between hover:text-fg {active === 'Thoughts' &&
-						'text-fg'}"><span>Thoughts</span> <span>0 entries</span></a
+					><span>About</span> <span>{data.age} years</span></a
 				>
 			</li>
 		</ul>
 
 		<hr class="w-full my-2 h-[1px] bg-outline border-0" />
 
-		<ul>
-			<ul class="text-sec flex flex-col gap-2">
-				<li><a href="/resume" class=" hover:text-fg">Resume</a></li>
-				<li>
-					<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
-				</li>
-				<li><a href="/contact" class=" hover:text-fg">Contact</a></li>
-			</ul>
+		<ul class="text-sec flex flex-col gap-2">
+			<li>
+				<a
+					href="https://drive.google.com/file/d/18pCvZJ7zqF6O-sCiEvYdt58dB9-9q_GF/view?usp=sharing"
+					target="_blank"
+					class=" hover:text-fg">Resume</a
+				>
+			</li>
+			<li>
+				<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
+			</li>
+			<li>
+				<a href="mailto:arminsuraj@gmail.com" target="_blank" class=" hover:text-fg">Contact</a>
+			</li>
 		</ul>
 	</div>
 
@@ -109,7 +132,7 @@
 		class="fixed bottom-0 left-0 w-full border-t border-outline bg-dark z-20 md:hidden"
 	>
 		<button id="nav-btn" bind:this={navBtn} class="p-4 w-full flex items-center justify-between">
-			<span class="text-sec">{$navPath}</span>
+			<span class="text-sec">{data.url}</span>
 			<span class="flex items-center gap-2"
 				><span bind:this={btnText}>Open Navigation</span>
 				<svg
@@ -139,35 +162,42 @@
 				<a
 					href="/projects"
 					class="flex items-center justify-between hover:text-fg {active === 'Projects' &&
-						'text-fg'}"><span>Projects</span> <span>12 projects</span></a
+						'text-fg'}"><span>Projects</span> <span>{data.projectCount} projects</span></a
+				>
+			</li>
+			<li>
+				<a
+					href="/notes"
+					class="flex items-center justify-between hover:text-fg {active === 'Notes' && 'text-fg'}"
+					><span>Notes</span>
+					<span>{data.notesCount} {data.notesCount === 1 ? 'entry' : 'entries'} </span></a
 				>
 			</li>
 			<li>
 				<a
 					href="/about"
 					class="flex items-center justify-between hover:text-fg {active === 'About' && 'text-fg'}"
-					><span>About</span> <span>22 years</span></a
-				>
-			</li>
-			<li>
-				<a
-					href="/thoughts"
-					class="flex items-center justify-between hover:text-fg {active === 'Thoughts' &&
-						'text-fg'}"><span>Thoughts</span> <span>0 entries</span></a
+					><span>About</span> <span>{data.age} years</span></a
 				>
 			</li>
 		</ul>
 
 		<hr class="w-[calc(100%-2rem)] my-2 mx-4 h-[1px] bg-outline border-0" />
 
-		<ul>
-			<ul class="p-4 text-sec flex flex-col gap-2">
-				<li><a href="/resume" class=" hover:text-fg">Resume</a></li>
-				<li>
-					<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
-				</li>
-				<li><a href="/contact" class=" hover:text-fg">Contact</a></li>
-			</ul>
+		<ul class="p-4 text-sec flex flex-col gap-2">
+			<li>
+				<a
+					href="https://drive.google.com/file/d/18pCvZJ7zqF6O-sCiEvYdt58dB9-9q_GF/view?usp=sharing"
+					target="_blank"
+					class=" hover:text-fg">Resume</a
+				>
+			</li>
+			<li>
+				<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
+			</li>
+			<li>
+				<a href="mailto:arminsuraj@gmail.com" target="_blank" class=" hover:text-fg">Contact</a>
+			</li>
 		</ul>
 	</nav>
 </div>
