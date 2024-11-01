@@ -127,6 +127,11 @@
 				<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
 			</li>
 			<li>
+				<a href="https://www.linkedin.com/in/arminsuraj/" target="_blank" class=" hover:text-fg"
+					>LinkedIn</a
+				>
+			</li>
+			<li>
 				<a href="mailto:arminsuraj@gmail.com" target="_blank" class=" hover:text-fg">Contact</a>
 			</li>
 		</ul>
@@ -200,6 +205,11 @@
 			</li>
 			<li>
 				<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/arminsuraj/" target="_blank" class=" hover:text-fg"
+					>LinkedIn</a
+				>
 			</li>
 			<li>
 				<a href="mailto:arminsuraj@gmail.com" target="_blank" class=" hover:text-fg">Contact</a>
