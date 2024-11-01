@@ -82,15 +82,17 @@ async function getNowPlaying(): Promise<Song> {
 	}
 }
 
-async function getNowReading(): Promise<Book> {
+async function getNowReading(
+	fetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>
+): Promise<Book> {
 	const res = await fetch('/api/literal');
 	const book: Book = await res.json();
 	return book;
 }
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ fetch }) => {
 	const spotify = getNowPlaying();
-	const literal = getNowReading();
+	const literal = getNowReading(fetch);
 
 	return {
 		spotify,
