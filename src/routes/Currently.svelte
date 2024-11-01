@@ -99,8 +99,12 @@
 
 <!-- Preload cover images -->
 <svelte:head>
-	<link rel="preload" as="image" href={songCover} />
-	<link rel="preload" as="image" href={bookCover} />
+	{#await spotify then}
+		<link rel="prefetch" as="image" href={songCover} />
+	{/await}
+	{#await literal then}
+		<link rel="prefetch" as="image" href={bookCover} />
+	{/await}
 </svelte:head>
 
 <p>
