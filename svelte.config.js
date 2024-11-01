@@ -5,6 +5,11 @@ import { mdsvex, escapeSvelte } from 'mdsvex';
 import { createHighlighter } from 'shiki';
 import shikiColorizedBrackets from '@michael-makes/shiki-colorized-brackets';
 
+const highlighter = await createHighlighter({
+	themes: ['material-theme-darker'],
+	langs: ['ts']
+});
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOpts = {
 	extensions: ['.md'],
@@ -12,11 +17,7 @@ const mdsvexOpts = {
 		_: './src/mdsvex.svelte'
 	},
 	highlight: {
-		highlighter: async (code, lang = 'text') => {
-			const highlighter = await createHighlighter({
-				themes: ['material-theme-darker'],
-				langs: ['ts']
-			});
+		highlighter: async (code, lang = 'text', file) => {
 			const html = escapeSvelte(
 				highlighter.codeToHtml(code, {
 					lang,
@@ -25,7 +26,15 @@ const mdsvexOpts = {
 					transformers: [shikiColorizedBrackets()]
 				})
 			);
-			return `{@html \`${html}\`}`;
+
+			if (!file) {
+				return `{@html \`${html}\`}`;
+			}
+
+			const open = `<div class="test"> <div class="italic text-sec font-light pl-2 w-full">${file}</div>`;
+			const close = `</div>`;
+
+			return `${open} {@html \`${html}\`} ${close}`;
 		}
 	},
 	remarkPlugins: [enhancedImages]

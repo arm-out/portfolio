@@ -40,8 +40,15 @@
 		font-size: 12px;
 	}
 
+	p > code {
+		background-color: #1a1a1a;
+		padding: 0.1rem 0.25rem;
+		border-radius: 0.25rem;
+	}
+
 	pre {
 		padding: 0.5rem;
 		overflow-x: auto;
+		margin-bottom: 1rem;
 	}
 }
