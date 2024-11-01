@@ -31,9 +31,6 @@ export async function GET({ setHeaders }) {
 		}
 	}
 
-	console.log(projects);
-	console.log(notes);
-
 	const projectEntries = projects.map((project) =>
 		createEntry(`projects/${project.slug}`, project.date)
 	);
@@ -65,7 +62,7 @@ function createEntry(path: string, lastmod: string): string {
 	return `
     <url>
         <loc>https://arminsuraj.com/${path}</loc>
-        ${lastmod ? `<lastmod>${new Date(lastmod).toISOString()}</lastmod>` : new Date().toISOString()}
+        <lastmod>${lastmod ? new Date(lastmod).toISOString() : new Date().toISOString()}</lastmod>
     </url>
     `;
 }
