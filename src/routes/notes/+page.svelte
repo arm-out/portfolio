@@ -51,7 +51,7 @@
 
 <hr class="w-full mt-2 mb-4 h-[1px] bg-outline border-0" />
 {#key changed}
-	<div in:blur={{ duration: 500 }}>
+	<div in:blur={{ delay: 300, duration: 500 }} out:blur={{ duration: 300 }}>
 		{#each notes as p, i (p.slug)}
 			<ListItem {p} notes={true} />
 		{/each}
