@@ -1,7 +1,6 @@
 <script lang="ts">
+	import { blur } from 'svelte/transition';
 	import ListItem from '$lib/components/ListItem.svelte';
-	import { navigating } from '$app/stores';
-	import { onMount } from 'svelte';
 	import { onNavigate } from '$app/navigation';
 	import { PUBLIC_OG_ENDPOINT } from '$env/static/public';
 	export let data;
@@ -17,40 +16,6 @@
 
 	let changed = 2;
 	$: checked, (changed -= 1);
-
-	let isInternalNavigation = false;
-	let external = false;
-	onMount(() => {
-		const unsubscribe = navigating.subscribe(($navigating) => {
-			if ($navigating) {
-				// This is an internal navigation
-				isInternalNavigation = true;
-			} else {
-				// Navigation completed or it's the initial page load
-				if (!isInternalNavigation) {
-					// This is either the initial page load or an external navigation
-					const referrer = document.referrer;
-					const currentDomain = window.location.hostname;
-
-					if (referrer && new URL(referrer).hostname === currentDomain) {
-						// console.log('Navigated from another page within the domain');
-					} else {
-						// console.log('Navigated from an external source or direct access');
-						external = true;
-					}
-				} else {
-					// console.log('Completed internal navigation');
-				}
-
-				// Reset for next navigation
-				isInternalNavigation = false;
-			}
-		});
-
-		return () => {
-			unsubscribe();
-		};
-	});
 
 	onNavigate((nav) => {
 		setTimeout(() => {
@@ -110,8 +75,10 @@
 
 <hr class="w-full mt-2 mb-4 h-[1px] bg-outline border-0" />
 
-{#key [checked, external]}
-	{#each projects.filter((p) => all || p.languages.some( (l) => checked.includes(l) )) as p, i (p.slug)}
-		<ListItem {p} {i} {external} {changed} />
-	{/each}
+{#key changed}
+	<div in:blur={{ duration: 500 }}>
+		{#each projects.filter((p) => all || p.languages.some( (l) => checked.includes(l) )) as p, i (p.slug)}
+			<ListItem {p} />
+		{/each}
+	</div>
 {/key}
