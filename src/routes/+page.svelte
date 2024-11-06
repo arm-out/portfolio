@@ -69,7 +69,7 @@
 	title="SuperSlowMo"
 	desc="is an ML pipeline that can create slow motion videos from regular videos"
 	code="https://github.com/arm-out/SuperSlowMo"
-	href="/projects/SuperSloMo"
+	href="/projects/SuperSlowMo"
 />
 
 <FeaturedProject
@@ -77,5 +77,5 @@
 	desc="is a single player browser game of higher or lower based on Spotify streaming data"
 	live="https://www.chartduels.com/"
 	code="https://github.com/arm-out/ChartDuels"
-	href="/chartduels"
+	href="/projects/ChartDuels"
 />
