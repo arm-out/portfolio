@@ -19,6 +19,7 @@
 		name="description"
 		content="Software engineer living in the intersection of design and technology"
 	/>
+	<link rel="canonical" href="https://arminsuraj.com" />
 
 	<meta property="og:title" content="Armin Suraj" />
 	<meta property="og:url" content="https://arminsuraj.com" />

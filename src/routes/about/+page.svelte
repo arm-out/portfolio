@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { PUBLIC_OG_ENDPOINT } from '$env/static/public';
 	import { onMount } from 'svelte';
 
@@ -33,6 +34,7 @@
 <svelte:head>
 	<title>About Me</title>
 	<meta name="description" content="What's currently going on in my life" />
+	<link rel="canonical" href="https://arminsuraj.com{$page.route}" />
 
 	<meta property="og:title" content="Armin Suraj" />
 	<meta property="og:url" content="https://arminsuraj.com/about" />
