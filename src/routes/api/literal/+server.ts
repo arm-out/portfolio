@@ -85,9 +85,9 @@ export const GET: RequestHandler = async () => {
 			slug: book.slug
 		}))[0];
 
-	// set cache control to 1 hour
+	// set cache control to 1 day
 	return new Response(JSON.stringify(latestBook as Book), {
 		status: 200,
-		headers: { 'Content-Type': 'application/json', 'Cache-Control': 'max-age=86400' }
+		headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=86400' }
 	});
 };
