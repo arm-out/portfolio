@@ -5,8 +5,8 @@ export const prerender = true;
 export async function GET({ setHeaders }) {
 	setHeaders({ 'Content-Type': 'application/xml' });
 
-	const projectPaths = await import.meta.glob('/src/projects/*.md', { eager: true });
-	const notePaths = await import.meta.glob('/src/notes/*.md', { eager: true });
+	const projectPaths = import.meta.glob('/src/projects/*.md', { eager: true });
+	const notePaths = import.meta.glob('/src/notes/*.md', { eager: true });
 
 	const projects = [];
 	const notes = [];
@@ -61,7 +61,7 @@ export async function GET({ setHeaders }) {
 function createEntry(path: string, lastmod: string): string {
 	return `
     <url>
-        <loc>https://arminsuraj.com/${path}</loc>
+        <loc>https://arminsuraj.com${path ? `/${path}` : ''}</loc>
         <lastmod>${lastmod ? new Date(lastmod).toISOString() : new Date().toISOString()}</lastmod>
     </url>
     `;
