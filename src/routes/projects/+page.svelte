@@ -3,7 +3,6 @@
 	import ListItem from '$lib/components/ListItem.svelte';
 	import { onNavigate } from '$app/navigation';
 	import { PUBLIC_OG_ENDPOINT } from '$env/static/public';
-	import { page } from '$app/stores';
 	export let data;
 
 	const projects = data.projects;
@@ -35,7 +34,7 @@
 <svelte:head>
 	<title>Projects</title>
 	<meta name="description" content="Some of my personal projects and explorations" />
-	<link rel="canonical" href="https://arminsuraj.com{$page.route}" />
+	<link rel="canonical" href="https://arminsuraj.com/projects" />
 
 	<meta property="og:title" content="Projects - Armin Suraj" />
 	<meta property="og:url" content="https://arminsuraj.com/projects" />

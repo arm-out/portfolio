@@ -34,7 +34,7 @@
 <svelte:head>
 	<title>About Me</title>
 	<meta name="description" content="What's currently going on in my life" />
-	<link rel="canonical" href="https://arminsuraj.com{$page.route}" />
+	<link rel="canonical" href="https://arminsuraj.com/about" />
 
 	<meta property="og:title" content="Armin Suraj" />
 	<meta property="og:url" content="https://arminsuraj.com/about" />

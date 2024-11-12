@@ -19,7 +19,7 @@
 <svelte:head>
 	<title>{data.meta.title}</title>
 	<meta name="description" content={data.meta.description} />
-	<link rel="canonical" href="https://arminsuraj.com{$page.route}" />
+	<link rel="canonical" href="https://arminsuraj.com/projects/{$page.params.slug}" />
 
 	<meta property="og:title" content={data.meta.title} />
 	<meta property="og:url" content="https://arminsuraj.com/projects/{$page.params.slug}" />
