@@ -9,6 +9,6 @@ code: https://github.com/arm-out/SportsBar
 live:
 ---
 
-![SportsBar header image](images/SportsBar/header.png)
+![SportsBar header](images/SportsBar/header.png)
 
 SportsBar is a MacOS menu bar app that provides live NBA and NFL game updates. What initially started out as an exploration into Swift and the Apple Develeper ecosystem quickly turned into one of my apps I use the most in my day to day life

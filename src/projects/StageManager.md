@@ -10,6 +10,6 @@ code: https://github.com/arm-out/StageManager
 live:
 ---
 
-![StageManager header image](images/StageManager/header.png)
+![StageManager header](images/StageManager/header.png)
 
 StageManager is a set of internal websocket based remote stage management tools, like teleprompter and stage direction controls, created for [TEDxUCSD](https://tedxucsd.com)

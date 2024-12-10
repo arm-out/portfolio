@@ -9,7 +9,7 @@ code: https://github.com/arm-out/SuperSlowMo
 live:
 ---
 
-![SuperSloMo header image](images/SuperSloMo/header.png)
+![SuperSloMo header](images/SuperSloMo/header.png)
 
 An implementation of video frame interpolation as described in the wildy popular research of [Jing Et al.](https://arxiv.org/abs/1712.00080) using an end-to-end convolutional neural network for generating spatially and temporally coherent video sequences
 

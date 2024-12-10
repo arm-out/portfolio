@@ -11,7 +11,7 @@ code: https://github.com/arm-out/seefood
 live:
 ---
 
-![seefood header image](images/seefood/header.png)
+![seefood header](images/seefood/header.png)
 
 seefood was my initial exploration into multimodal AI agents, using the GPT-4 vision API to provide an easy interface to identify food ingredients and suggest calorie and macro breakdowns from suggested portion sizes
 

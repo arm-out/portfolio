@@ -10,7 +10,7 @@ code: https://github.com/arm-out/ARMINx8?tab=readme-ov-file
 live:
 ---
 
-![ARMINx8 header image](images/ARMINx8/header.png)
+![ARMINx8 header](images/ARMINx8/header.png)
 
 ARMINx8 (Another RISC Microprocessor INdeed) is a fully custom 8-bit microprocessor with a custom architecture
 

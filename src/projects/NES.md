@@ -10,7 +10,7 @@ code: https://github.com/arm-out/NES
 live:
 ---
 
-![NES header image](images/NES/header.jpg)
+![NES header](images/NES/header.jpg)
 
 This is an emulator of the classic [NES console](https://en.wikipedia.org/wiki/Nintendo_Entertainment_System) that is able to play ROMs of most of the classic games like Super Maro Bros, PacMan, Donkey Kong etc.
 

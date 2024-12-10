@@ -10,7 +10,7 @@ code: https://github.com/arm-out/armn.link
 live: https://armn.link
 ---
 
-![armn-link header image](images/armn-link/header.png)
+![armn-link header](images/armn-link/header.png)
 
 armn.link is a URL shortener that was created for the sole purpose of creating short shareable links to projects/blog posts
 
