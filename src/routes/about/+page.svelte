@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { PUBLIC_OG_ENDPOINT } from '$env/static/public';
 	import { onMount } from 'svelte';
 
@@ -12,7 +11,8 @@
 		'&desc=' +
 		encodeURIComponent(' ');
 
-	const offset = 8;
+	const location = 'Melbourne, Australia';
+	const offset = 11;
 
 	let date = new Date();
 	let utc = date.getTime() + date.getTimezoneOffset() * 60000;
@@ -70,7 +70,7 @@
 
 {#if data.temp && data.code}
 	<footer class="mt-24">
-		<p>Singapore</p>
+		<p>{location}</p>
 		<p>{curTime}, {data.code} at {data.temp} &#8451;</p>
 	</footer>
 {:else}
