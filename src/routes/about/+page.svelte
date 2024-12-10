@@ -62,9 +62,9 @@
 
 <h2 class="text-sec mt-8 mb-4">Current Obsessions</h2>
 <ul>
+	<li>Advent of Code</li>
 	<li>Picking up the violin after 6 years</li>
 	<li>Songwriting and production</li>
-	<li>League of Legends Worlds</li>
 	<li>Grinding chess</li>
 </ul>
 
