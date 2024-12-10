@@ -32,9 +32,11 @@ const weatherCodes: { [key: number]: string } = {
 };
 
 export const load: PageLoad = async ({ fetch }) => {
+	const lat = '-37.814';
+	const long = '144.9633';
 	try {
 		const res = await fetch(
-			'https://api.open-meteo.com/v1/forecast?latitude=1.2897&longitude=103.8501&current=weather_code&hourly=temperature_2m,weather_code&forecast_days=1'
+			`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=weather_code&hourly=temperature_2m,weather_code&forecast_days=1`
 		);
 		const data: {
 			current: { weather_code: number };
