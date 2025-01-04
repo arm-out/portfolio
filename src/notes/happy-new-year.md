@@ -11,4 +11,4 @@ I’m not usually one for setting resolutions. I believe more in building sustai
 
 Negativity seems to surround us—headlines filled with the rise of AI, ongoing wars, persistent racism and discrimination of all kinds, etc. In the midst of it all, I’ve found myself longing for the youthful exuberance I once had, that ability to find delight so easily.
 
-So, this year my resolution is to seek out joy as earnestly as I strive to bring it to others.
+So, this year my resolution is to seek out joy as earnestly as I strive to bring it to others. If anyone is out there reading this I hope this inspires you to do the same.
