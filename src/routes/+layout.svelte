@@ -117,11 +117,7 @@
 
 		<ul class="text-sec flex flex-col gap-2">
 			<li>
-				<a
-					href="https://drive.google.com/file/d/18pCvZJ7zqF6O-sCiEvYdt58dB9-9q_GF/view?usp=sharing"
-					target="_blank"
-					class=" hover:text-fg">Resume</a
-				>
+				<a href="/resume.pdf" target="_blank" class=" hover:text-fg">Resume</a>
 			</li>
 			<li>
 				<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
@@ -197,11 +193,7 @@
 
 		<ul class="p-4 text-sec flex flex-col gap-2">
 			<li>
-				<a
-					href="https://drive.google.com/file/d/18pCvZJ7zqF6O-sCiEvYdt58dB9-9q_GF/view?usp=sharing"
-					target="_blank"
-					class=" hover:text-fg">Resume</a
-				>
+				<a href="/resume.pdf" target="_blank" class=" hover:text-fg">Resume</a>
 			</li>
 			<li>
 				<a href="https://github.com/arm-out" target="_blank" class=" hover:text-fg">Github</a>
