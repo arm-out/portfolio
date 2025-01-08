@@ -49,8 +49,8 @@
 <h1 class="sr-only">About Me</h1>
 
 <p class="pb-4">
-	My best days are filled with tasty food, good music, and quality time with friends. My hobbies
-	include music production, graphic design and playing basketball.
+	My best days are filled with good food, music, and quality time with friends. My hobbies include
+	music production, graphic design and playing basketball.
 </p>
 
 <div class="grid grid-cols-2 gap-4 pb-4">
@@ -62,7 +62,6 @@
 
 <h2 class="text-sec mt-8 mb-4">Current Obsessions</h2>
 <ul>
-	<li>Advent of Code</li>
 	<li>Picking up the violin after 6 years</li>
 	<li>Songwriting and production</li>
 	<li>Grinding chess</li>
